@@ -18,15 +18,15 @@ const HomeZeroStyles = styled.div`
 
   .behind1 {
     width: 75%;
-    height: 30%;
+    height: 35%;
     outline: 1px solid var(--pall4);
     margin-top: 0%;
     margin-right: 40%;
+    margin-left: 5%;
   }
   .behind2 {
     width: 75%;
     height: 30%;
-    outline: 1px solid green;
     z-index: 10;
     position: absolute;
     margin-bottom: 10%;
@@ -49,7 +49,7 @@ const HomeZeroStyles = styled.div`
   .meow {
     width: 90%;
     height: 30vh;
-    z-index: 1000;
+    z-index: 999;
     position: absolute;
     color: black;
     font-size: 12rem;
@@ -64,6 +64,7 @@ const HomeZeroStyles = styled.div`
     height: 100%;
     overflow: hidden;
     position: relative;
+    z-index: 999;
   }
   .kitty2 {
     margin-top: 10vh;
