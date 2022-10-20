@@ -35,7 +35,7 @@ const HomeZeroStyles = styled.div`
   }
   .behind3 {
     width: 75%;
-    height: 30%;
+    height: 20%;
     z-index: 100;
     position: absolute;
     background-color: #881337;
