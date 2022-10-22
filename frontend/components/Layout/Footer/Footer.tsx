@@ -18,6 +18,8 @@ export default function () {
   return (
     <FooterStyles>
       <a
+        target="_blank"
+        rel="noopener noreferrer"
         style={{ textDecoration: 'none', color: 'var(--pall2)' }}
         href="https://github.com/erratinsilentio"
       >
