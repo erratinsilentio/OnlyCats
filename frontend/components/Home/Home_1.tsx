@@ -49,8 +49,6 @@ const HomeOneStyles = styled.div`
     color: var(--pall1);
     padding-top: 5%;
     margin-bottom: 15%;
-    /* filter: invert(1);
-    mix-blend-mode: difference; */
   }
 
   .text-button {
@@ -62,7 +60,7 @@ const HomeOneStyles = styled.div`
     color: var(--pall1);
     text-align: center;
     margin-left: 1vh;
-
+    z-index: 80;
     &:hover {
       background-color: var(--pall1);
       color: crimson;
@@ -89,7 +87,7 @@ const HomeOneStyles = styled.div`
 `;
 
 export default function HomeOne() {
-  const { ref } = useParallax({ speed: 100 });
+  const { ref } = useParallax({ speed: 100, easing: [0, 1.2, 1, 0] });
 
   return (
     <HomeOneStyles>

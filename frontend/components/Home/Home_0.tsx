@@ -7,6 +7,7 @@ const HomeZeroStyles = styled.div`
   height: 85vh;
   display: flex;
   flex-direction: row;
+
   .left-content1 {
     width: 55%;
     height: 100%;
@@ -15,6 +16,7 @@ const HomeZeroStyles = styled.div`
     align-items: center;
     position: relative;
   }
+
   .behind1 {
     width: 75%;
     height: 35%;
@@ -69,20 +71,20 @@ const HomeZeroStyles = styled.div`
   }
 `;
 
-function ParallaxOne({ name }) {
+const ParallaxOne = ({ name }) => {
   const { ref } = useParallax<HTMLDivElement>({ speed: 7 });
   return <div className={name} ref={ref} />;
-}
+};
 
-function ParallaxTwo({ name }) {
+const ParallaxTwo = ({ name }) => {
   const { ref } = useParallax<HTMLDivElement>({ speed: 4 });
   return <div className={name} ref={ref} />;
-}
+};
 
-function ParallaxThree({ name }) {
+const ParallaxThree = ({ name }) => {
   const { ref } = useParallax<HTMLDivElement>({ speed: 1 });
   return <div className={name} ref={ref} />;
-}
+};
 
 export default function HomeZero() {
   const { ref } = useParallax({ speed: 75 });
