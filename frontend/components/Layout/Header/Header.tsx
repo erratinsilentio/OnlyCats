@@ -18,7 +18,10 @@ export default function Header() {
       </NavStyles>
       <Link href="/">
         <div className="center-menu" style={{ fontSize: '2rem' }}>
-          OnlyCats
+          <img
+            className="logo"
+            src="https://see.fontimg.com/api/renderfont4/z8omG/eyJyIjoiZnMiLCJoIjoxMzAsInciOjIwMDAsImZzIjo2NSwiZmdjIjoiIzAwMDAwMCIsImJnYyI6IiNGRkZGRkYiLCJ0IjoxfQ/T25seUNhdHM/elmirta.png"
+          />
         </div>
       </Link>
       <NavStyles>

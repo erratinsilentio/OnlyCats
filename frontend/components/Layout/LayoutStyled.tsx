@@ -24,6 +24,7 @@ export const GlobalStyles = createGlobalStyle`
 body{
     background-color: var(--pall1);
     font-family: 'Courier New', Courier, monospace;
+    margin: 0;
 }
 
 button{

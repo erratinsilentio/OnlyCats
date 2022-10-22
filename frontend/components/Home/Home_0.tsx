@@ -1,12 +1,12 @@
 /* eslint-disable react/jsx-filename-extension */
 import styled from 'styled-components';
+import { useParallax, Parallax } from 'react-scroll-parallax';
 
 const HomeZeroStyles = styled.div`
   width: 100%;
-  height: 80vh;
+  height: 85vh;
   display: flex;
   flex-direction: row;
-
   .left-content1 {
     width: 55%;
     height: 100%;
@@ -15,7 +15,6 @@ const HomeZeroStyles = styled.div`
     align-items: center;
     position: relative;
   }
-
   .behind1 {
     width: 75%;
     height: 35%;
@@ -25,7 +24,7 @@ const HomeZeroStyles = styled.div`
     margin-left: 5%;
   }
   .behind2 {
-    width: 75%;
+    width: 70%;
     height: 30%;
     z-index: 10;
     position: absolute;
@@ -45,7 +44,6 @@ const HomeZeroStyles = styled.div`
       background-color: #fde68a;
     }
   }
-
   .meow {
     width: 90%;
     height: 30vh;
@@ -58,7 +56,6 @@ const HomeZeroStyles = styled.div`
     padding-left: 1vh;
     margin-left: 10%;
   }
-
   .right-content1 {
     width: 45%;
     height: 100%;
@@ -72,17 +69,38 @@ const HomeZeroStyles = styled.div`
   }
 `;
 
+function ParallaxOne({ name }) {
+  const { ref } = useParallax<HTMLDivElement>({ speed: 7 });
+  return <div className={name} ref={ref} />;
+}
+
+function ParallaxTwo({ name }) {
+  const { ref } = useParallax<HTMLDivElement>({ speed: 4 });
+  return <div className={name} ref={ref} />;
+}
+
+function ParallaxThree({ name }) {
+  const { ref } = useParallax<HTMLDivElement>({ speed: 1 });
+  return <div className={name} ref={ref} />;
+}
+
 export default function HomeZero() {
+  const { ref } = useParallax({ speed: 75 });
+
   return (
     <HomeZeroStyles>
       <div className="left-content1">
-        <div className="behind1" />
-        <div className="behind2" />
-        <div className="behind3" />
-        <div className="meow">Meow?</div>
+        <ParallaxThree name="behind1" />
+        <ParallaxTwo name="behind2" />
+        <ParallaxOne name="behind3" />
+        <div className="meow" ref={ref}>
+          Meow?
+        </div>
       </div>
       <div className="right-content1">
-        <img src="../static/kitty2.svg" className="kitty2" />
+        <Parallax translateX={['-100px', '200px']}>
+          <img src="../static/kitty2.svg" className="kitty2" />
+        </Parallax>
       </div>
     </HomeZeroStyles>
   );

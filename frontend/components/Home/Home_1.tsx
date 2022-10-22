@@ -1,5 +1,6 @@
 /* eslint-disable react/jsx-filename-extension */
 import styled from 'styled-components';
+import { useParallax, Parallax } from 'react-scroll-parallax';
 
 const HomeOneStyles = styled.div`
   width: 100%;
@@ -35,24 +36,28 @@ const HomeOneStyles = styled.div`
   .text-title {
     width: 100%;
     height: 60%;
-    font-size: 2.5rem;
+    font-size: 4.5rem;
     display: flex;
     align-items: flex-end;
-    padding-bottom: 7%;
+    padding-bottom: 3%;
   }
 
   .text-subtitle {
     width: 100%;
     height: 30%;
-    font-size: 1.5rem;
+    font-size: 3.5rem;
     color: var(--pall1);
     padding-top: 5%;
+    margin-bottom: 15%;
+    /* filter: invert(1);
+    mix-blend-mode: difference; */
   }
 
   .text-button {
-    width: 30%;
-    height: 5vh;
-    line-height: 5vh;
+    width: 70%;
+    height: 10vh;
+    line-height: 10vh;
+    font-size: 2rem;
     background-color: var(--pall4);
     color: var(--pall1);
     text-align: center;
@@ -61,6 +66,7 @@ const HomeOneStyles = styled.div`
     &:hover {
       background-color: var(--pall1);
       color: crimson;
+      outline: 1px solid #618989;
     }
   }
 
@@ -77,22 +83,30 @@ const HomeOneStyles = styled.div`
     width: 100%;
     background-color: var(--pall2);
     display: flex;
+    filter: invert(1);
+    mix-blend-mode: difference;
   }
 `;
 
 export default function HomeOne() {
+  const { ref } = useParallax({ speed: 100 });
+
   return (
     <HomeOneStyles>
       <div className="gallery">
-        <img src="../static/kitty.svg" className="kitty" />
-        <div className="gallery-text">
-          <div className="text-title">Premium cat pictures</div>
-          <div className="text-subtitle">New images everyday</div>
-          <div className="text-button">SHOP NOW</div>
-        </div>
+        <Parallax speed={40}>
+          <img src="../static/kitty.svg" className="kitty" />
+        </Parallax>
+        <Parallax speed={30}>
+          <div className="gallery-text">
+            <div className="text-title">Premium cat pictures...</div>
+            <div className="text-subtitle">New images everyday</div>
+            <div className="text-button">SHOP NOW</div>
+          </div>
+        </Parallax>
       </div>
       <div className="upper-bg" />
-      <div className="lower-bg" />
+      <div className="lower-bg" ref={ref} />
     </HomeOneStyles>
   );
 }

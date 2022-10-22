@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const HeaderStyles = styled.div`
-  width: 94vw;
+  width: 100vw;
   height: 10vh;
   display: flex;
   flex-direction: row;
@@ -10,6 +10,12 @@ export const HeaderStyles = styled.div`
   padding-left: 2rem;
   padding-right: 2rem;
   background-color: var(--pall1);
+  /* position: fixed;
+  z-index: 9999; */
+  .logo {
+    width: 10vw;
+    margin-top: 2vw;
+  }
 `;
 
 export const NavStyles = styled.nav`

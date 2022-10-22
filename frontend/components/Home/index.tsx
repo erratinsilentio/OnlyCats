@@ -2,8 +2,7 @@
 /* eslint-disable react/display-name */
 import Link from 'next/link';
 import styled from 'styled-components';
-import kitty from '../../static/kitty.svg';
-import kitty2 from '../../static/kitty2.svg';
+import { ParallaxProvider } from 'react-scroll-parallax';
 import HomeZero from './Home_0';
 import HomeOne from './Home_1';
 import HomeTwo from './Home_2';
@@ -20,10 +19,12 @@ export const HomeStyles = styled.div`
 
 export default function Home() {
   return (
-    <HomeStyles>
-      <HomeZero />
-      <HomeOne />
-      <HomeTwo />
-    </HomeStyles>
+    <ParallaxProvider>
+      <HomeStyles>
+        <HomeZero />
+        <HomeOne />
+        <HomeTwo />
+      </HomeStyles>
+    </ParallaxProvider>
   );
 }
