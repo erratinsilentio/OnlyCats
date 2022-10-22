@@ -34,9 +34,9 @@ const HomeOneStyles = styled.div`
   }
 
   .text-title {
-    width: 100%;
+    width: 80vw;
     height: 60%;
-    font-size: 4.5rem;
+    font-size: 4rem;
     display: flex;
     align-items: flex-end;
     padding-bottom: 3%;
@@ -97,8 +97,8 @@ export default function HomeOne() {
         </Parallax>
         <Parallax speed={30}>
           <div className="gallery-text">
-            <div className="text-title">Premium cat pictures...</div>
-            <div className="text-subtitle">New images everyday</div>
+            <div className="text-title">PREMIUM CAT PICTURES</div>
+            <div className="text-subtitle">NEW IMAGES EVERYDAY</div>
             <div className="text-button">SHOP NOW</div>
           </div>
         </Parallax>

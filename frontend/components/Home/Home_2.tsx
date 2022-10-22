@@ -45,8 +45,10 @@ const HomeTwoStyles = styled.div`
     height: 10vh;
     line-height: 10vh;
     text-align: center;
+    font-size: 1.15rem;
     position: absolute;
-    background-color: var(--pall2);
+    /* background-color: var(--pall2); */
+    background-color: #881337;
     color: var(--pall1);
     z-index: 100; 
   }
@@ -66,6 +68,7 @@ const HomeTwoStyles = styled.div`
     width: 70%;
     height: 10vh;
     background-color: #618989;
+    /* background-color: #881337; */
     position: absolute;
     left: 100px;
     z-index: 10; 

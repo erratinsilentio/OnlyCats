@@ -13,7 +13,8 @@ export const GlobalStyles = createGlobalStyle`
     --pall2: #9e7676;
     --pall3: #815b5b;
     --pall4: #594545;
-    --red1: crimson;
+    --red1: #881337;
+    --blue1: #618989;
     box-sizing: border-box;
 }
 
@@ -23,7 +24,8 @@ export const GlobalStyles = createGlobalStyle`
 
 body{
     background-color: var(--pall1);
-    font-family: 'Courier New', Courier, monospace;
+    /* font-family: 'Courier New', Courier, monospace; */
+    font-family: Georgia, 'Times New Roman', Times, serif;
     margin: 0;
 }
 

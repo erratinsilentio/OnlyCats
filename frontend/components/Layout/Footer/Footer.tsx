@@ -7,6 +7,11 @@ const FooterStyles = styled.div`
   background-color: var(--pall4);
   text-align: center;
   color: var(--pall2);
+
+  /* position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 9999; */
 `;
 
 export default function () {
