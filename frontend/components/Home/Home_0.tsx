@@ -9,8 +9,8 @@ const HomeZeroStyles = styled.div`
   flex-direction: row;
 
   .left-content1 {
-    width: 55%;
-    height: 100%;
+    min-width: 55%;
+    min-height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -18,30 +18,32 @@ const HomeZeroStyles = styled.div`
   }
 
   .behind1 {
-    width: 75%;
-    height: 35%;
+    min-width: 70vw;
+    min-height: 35%;
     outline: 1px solid var(--pall4);
-    margin-top: 0%;
-    margin-right: 40%;
-    margin-left: 5%;
+    top: 32.5%;
+    right: 80px;
+    z-index: 1;
+    position: absolute;
   }
   .behind2 {
-    width: 70%;
-    height: 30%;
+    min-width: 70%;
+    min-height: 30%;
     z-index: 10;
     position: absolute;
-    margin-bottom: 10%;
-    margin-left: 40%;
+    bottom: 32%;
+    left: 55%;
     background-color: var(--pall4);
   }
   .behind3 {
-    width: 75%;
-    height: 20%;
+    min-width: 75%;
+    min-height: 20%;
     z-index: 100;
     position: absolute;
     background-color: #881337;
-    margin-left: 25%;
-    margin-top: 10%;
+    left: 25%;
+    bottom: 29%;
+
     &:hover {
       background-color: #fde68a;
     }
@@ -49,14 +51,14 @@ const HomeZeroStyles = styled.div`
   .meow {
     width: 90%;
     height: 30vh;
-    z-index: 999;
+    z-index: 9999;
     position: absolute;
     color: black;
     font-size: 12rem;
     filter: invert(1);
     mix-blend-mode: difference;
     padding-left: 1vh;
-    margin-left: 10%;
+    left: 15%;
   }
   .right-content1 {
     width: 45%;

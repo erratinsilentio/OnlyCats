@@ -5,10 +5,12 @@ import { useParallax, Parallax } from 'react-scroll-parallax';
 const HomeTwoStyles = styled.div`
   width: 100%;
   height: 97vh;
+  max-height: 97vh;
   background-color: var(--pall2);
   display: flex;
   flex-direction: row;
   overflow: hidden;
+  position: relative;
 
   .lefttside {
     width: 35%;
@@ -37,7 +39,7 @@ const HomeTwoStyles = styled.div`
     text-align: center;
     color: black;
     position: absolute;
-    top: 0px;
+    top: 10px;
   }
 
   .front{
