@@ -10,8 +10,7 @@ export const HeaderStyles = styled.div`
   padding-left: 2rem;
   padding-right: 2rem;
   background-color: var(--pall1);
-  /* position: fixed;
-  z-index: 9999; */
+
   .logo {
     width: 10vw;
     margin-top: 2vw;

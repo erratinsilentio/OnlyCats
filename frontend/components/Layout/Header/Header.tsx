@@ -9,8 +9,8 @@ export default function Header() {
         <Link href="/about">
           <NavButtonStyles>About</NavButtonStyles>
         </Link>
-        <Link href="/sell">
-          <NavButtonStyles>Sell</NavButtonStyles>
+        <Link href="/shop">
+          <NavButtonStyles>Shop</NavButtonStyles>
         </Link>
         <Link href="/orders">
           <NavButtonStyles>Orders</NavButtonStyles>
