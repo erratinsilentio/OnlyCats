@@ -17,12 +17,13 @@ const Container = styled.div`
     width: 50vw;
     height: 70vh;
     position: relative;
+    overflow: hidden;
   }
 
   .cat {
     position: absolute;
-    width: 60vw;
-    bottom: -30%;
+    width: 48vw;
+    bottom: -33%;
     left: -20%;
   }
 `;
@@ -105,6 +106,7 @@ export default function CreateCat() {
               placeholder="name"
               value={inputs.name}
               onChange={handleChange}
+              minLength="3"
             />
           </label>
           <label htmlFor="price">
@@ -116,6 +118,8 @@ export default function CreateCat() {
               placeholder="price"
               value={inputs.price}
               onChange={handleChange}
+              min="1"
+              max="1000000"
             />
           </label>
           <label htmlFor="description">

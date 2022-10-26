@@ -63,13 +63,13 @@ const Form = styled.form`
     width: 60%;
     height: 70%;
     border: 3px solid var(--red1);
-    border-radius: 0px;
     display: flex;
     justify-content: space-between;
     font-size: 1rem;
     padding-left: 1rem;
     line-height: 6vh;
     border-radius: 5px;
+
     cursor: pointer;
     &:hover {
       background-color: var(--red1);
