@@ -3,6 +3,7 @@ import { useMutation } from '@apollo/client';
 import styled from 'styled-components';
 import useForm from '../../utils/useForm';
 import Form from './Form';
+import ErrorMessage from '../../utils/Error';
 
 const Container = styled.div`
   width: 100%;
@@ -15,7 +16,14 @@ const Container = styled.div`
   .right {
     width: 50vw;
     height: 70vh;
-    outline: 1px solid black;
+    position: relative;
+  }
+
+  .cat {
+    position: absolute;
+    width: 60vw;
+    bottom: -30%;
+    left: -20%;
   }
 `;
 
@@ -69,17 +77,24 @@ export default function CreateCat() {
           clearForm();
         }}
       >
-        {/* <DisplayError error={error} /> */}
         <fieldset disabled={loading} aria-busy={loading}>
-          <label htmlFor="image">
-            Image
+          <label htmlFor="image" className="img-label">
             <input
               required
               type="file"
               name="image"
               id="image"
               onChange={handleChange}
+              className="file-selector"
             />
+            <div className="new-file">
+              choose photo >>
+              <div className="left">
+                <img src="../static/upload.svg" />
+              </div>
+            </div>
+            <ErrorMessage error={error} />
+
           </label>
           <label htmlFor="name">
             Name
@@ -117,7 +132,9 @@ export default function CreateCat() {
           <button type="submit">+ Add Cat</button>
         </fieldset>
       </Form>
-      <div className="right" />
+      <div className="right">
+        <img src="../static/kitty5.svg" className="cat" />
+      </div>
     </Container>
   );
 }

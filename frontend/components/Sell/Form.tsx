@@ -15,14 +15,15 @@ const loading = keyframes`
 const Form = styled.form`
   box-shadow: 0 0 5px 3px rgba(0, 0, 0, 0.05);
   background: rgba(0, 0, 0, 0.02);
-  border: 5px solid white;
+  border: 5px solid var(--blue1);
   padding: 20px;
   font-size: 1.5rem;
   line-height: 1.5;
-  font-weight: 600;
+  font-weight: 100;
   label {
     display: block;
     margin-bottom: 1rem;
+    margin-top: 10px;
   }
   input,
   textarea,
@@ -30,12 +31,67 @@ const Form = styled.form`
     width: 100%;
     padding: 0.5rem;
     font-size: 1rem;
-    border: 1px solid black;
+    border: 0px solid black;
+    margin-top: 10px;
     &:focus {
-      outline: 0;
-      border-color: var(--red);
+      outline: none !important;
+      border: 1px solid var(--blue1);
+      box-shadow: 0 0 5px #719ece;
     }
   }
+
+  .img-label {
+    position: relative;
+    height: 10vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+  }
+  .file-selector {
+    position: absolute;
+    bottom: 20%;
+    opacity: 0;
+    z-index: 1;
+  }
+
+  .new-file {
+    position: absolute;
+    bottom: 15%;
+    left: 0%;
+    z-index: 5;
+    width: 60%;
+    height: 70%;
+    border: 3px solid var(--red1);
+    border-radius: 0px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 1rem;
+    padding-left: 1rem;
+    line-height: 6vh;
+    border-radius: 5px;
+    cursor: pointer;
+    &:hover {
+      background-color: var(--red1);
+      color: var(--pall1);
+    }
+  }
+  .left {
+    height: 100%;
+    width: 30%;
+    background-color: var(--red1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    img {
+      width: 50%;
+      color: white;
+      filter: invert(99%) sepia(72%) saturate(422%) hue-rotate(30deg)
+        brightness(114%) contrast(102%);
+    }
+  }
+
   button,
   input[type='submit'] {
     width: auto;
@@ -43,8 +99,12 @@ const Form = styled.form`
     color: white;
     border: 0;
     font-size: 2rem;
-    font-weight: 600;
     padding: 0.5rem 1.2rem;
+    cursor: pointer;
+
+    &:hover {
+      filter: brightness(120%);
+    }
   }
   fieldset {
     border: 0;

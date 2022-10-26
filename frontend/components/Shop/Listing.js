@@ -33,6 +33,9 @@ const ListingStyles = styled.div`
     opacity: 1;
     background-image: radial-gradient(#618989 2px, #fff8ea 2px);
     background-size: 40px 40px;
+    &:hover {
+      border: 10px solid var(--blue1);
+    }
   }
 
   .box {
