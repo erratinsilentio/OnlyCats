@@ -13,14 +13,15 @@ const loading = keyframes`
 `;
 
 const Form = styled.form`
-  box-shadow: 0 0 5px 3px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.05);
   background: rgba(0, 0, 0, 0.02);
-  border: 3px solid var(--blue1);
+  border-left: 10px solid var(--blue1);
   padding: 20px;
   font-size: 1.5rem;
   line-height: 1.5;
   font-weight: 100;
   height: 75vh;
+  z-index: 6;
   label {
     display: block;
     margin-bottom: 1rem;
