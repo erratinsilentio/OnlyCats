@@ -10,14 +10,27 @@ const Container = styled.div`
   height: 80%;
   margin-top: 5vh;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
 
   .right {
     width: 50vw;
-    height: 70vh;
+    height: 75vh;
     position: relative;
-    overflow: hidden;
+    overflow: hidden; 
+  }
+
+  .bg{
+    position: absolute;
+    width: 100%;
+    height: 80%;
+    z-index: 2;
+    bottom: 10%;
+    background-color: #FFF8EA;
+    opacity: 0.8;
+    background-image:  radial-gradient(#618989 1px, transparent 1px), radial-gradient(#618989 1px, #FFF8EA 1px);
+    background-size: 40px 40px;
+    background-position: 0 0,20px 20px;
   }
 
   .cat {
@@ -25,6 +38,7 @@ const Container = styled.div`
     width: 48vw;
     bottom: -33%;
     left: -20%;
+    z-index: 5;
   }
 `;
 
@@ -138,6 +152,7 @@ export default function CreateCat() {
       </Form>
       <div className="right">
         <img src="../static/kitty5.svg" className="cat" />
+        <div className="bg" />
       </div>
     </Container>
   );
