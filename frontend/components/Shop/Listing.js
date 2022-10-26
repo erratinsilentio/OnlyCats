@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import styled from 'styled-components';
+import Link from 'next/link';
 import nameFormat from '../../utils/nameFormatter';
 import moneyFormat from '../../utils/moneyFormatter';
 
@@ -34,7 +35,9 @@ const ListingStyles = styled.div`
     background-image: radial-gradient(#618989 2px, #fff8ea 2px);
     background-size: 40px 40px;
     &:hover {
-      border: 10px solid var(--blue1);
+      border-left: 10px solid var(--blue1);
+      border-right: 10px solid var(--blue1);
+      border-top: 10px solid var(--blue1);
     }
   }
 
@@ -62,20 +65,22 @@ export default function Listing({ cat }) {
   const [chosen, setChosen] = useState('');
 
   return (
-    <ListingStyles
-      onMouseOver={() => setChosen(cat.name)}
-      onMouseLeave={() => setChosen('')}
-    >
-      <div className={chosen === cat.name ? 'chosen' : 'none'}>chose me!</div>
-      <img src={cat.photo.image.publicUrlTransformed} className="image" />
-      <div className="title box">
-        <div className="title-txt">{nameFormat(cat.name)}</div>
-        <div className="title-bg" />
-      </div>
-      <div className="price box">
-        <div className="price-txt">{moneyFormat(cat.price)} $</div>
-        <div className="price-bg" />
-      </div>
-    </ListingStyles>
+    <Link href={`/product/${cat.id}`}>
+      <ListingStyles
+        onMouseOver={() => setChosen(cat.name)}
+        onMouseLeave={() => setChosen('')}
+      >
+        <div className={chosen === cat.name ? 'chosen' : 'none'}>chose me!</div>
+        <img src={cat.photo.image.publicUrlTransformed} className="image" />
+        <div className="title box">
+          <div className="title-txt">{nameFormat(cat.name)}</div>
+          <div className="title-bg" />
+        </div>
+        <div className="price box">
+          <div className="price-txt">{moneyFormat(cat.price)} $</div>
+          <div className="price-bg" />
+        </div>
+      </ListingStyles>
+    </Link>
   );
 }
