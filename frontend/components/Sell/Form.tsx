@@ -42,6 +42,10 @@ const Form = styled.form`
     }
   }
 
+  textarea {
+    overflow: scroll;
+  }
+
   .img-label {
     position: relative;
     height: 10vh;
