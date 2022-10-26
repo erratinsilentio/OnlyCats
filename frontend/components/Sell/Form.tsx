@@ -18,10 +18,18 @@ const Form = styled.form`
   border-left: 10px solid var(--blue1);
   padding: 20px;
   font-size: 1.5rem;
+  font-family: 'Courier New', Courier, monospace;
   line-height: 1.5;
   font-weight: 100;
   height: 75vh;
   z-index: 6;
+  background: rgb(255, 248, 234);
+  background: linear-gradient(
+    0deg,
+    rgba(255, 248, 234, 1) 0%,
+    rgba(224, 217, 201, 1) 100%
+  );
+  color: black;
   label {
     display: block;
     margin-bottom: 1rem;
@@ -107,6 +115,13 @@ const Form = styled.form`
     font-size: 2rem;
     padding: 0.5rem 1.2rem;
     cursor: pointer;
+    background: rgb(136, 19, 55);
+    background: linear-gradient(
+      270deg,
+      rgba(136, 19, 55, 1) 0%,
+      rgba(170, 18, 81, 1) 35%,
+      rgba(136, 19, 55, 1) 100%
+    );
 
     &:hover {
       filter: brightness(120%);

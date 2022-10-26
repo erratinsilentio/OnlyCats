@@ -17,20 +17,21 @@ const Container = styled.div`
     width: 50vw;
     height: 75vh;
     position: relative;
-    overflow: hidden; 
+    overflow: hidden;
   }
 
-  .bg{
+  .bg {
     position: absolute;
     width: 100%;
     height: 80%;
     z-index: 2;
     bottom: 10%;
-    background-color: #FFF8EA;
+    background-color: #fff8ea;
     opacity: 0.8;
-    background-image:  radial-gradient(#618989 1px, transparent 1px), radial-gradient(#618989 1px, #FFF8EA 1px);
+    background-image: radial-gradient(#618989 1px, transparent 1px),
+      radial-gradient(#618989 1px, #fff8ea 1px);
     background-size: 40px 40px;
-    background-position: 0 0,20px 20px;
+    background-position: 0 0, 20px 20px;
   }
 
   .cat {
@@ -103,13 +104,12 @@ export default function CreateCat() {
               className="file-selector"
             />
             <div className="new-file">
-              choose photo >>
+              choose photo
               <div className="left">
                 <img src="../static/upload.svg" />
               </div>
             </div>
             <ErrorMessage error={error} />
-
           </label>
           <label htmlFor="name">
             Name
