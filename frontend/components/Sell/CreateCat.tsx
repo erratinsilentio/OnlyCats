@@ -1,9 +1,11 @@
 import gql from 'graphql-tag';
 import { useMutation } from '@apollo/client';
 import styled from 'styled-components';
+import Router from 'next/router';
 import useForm from '../../utils/useForm';
 import Form from './Form';
 import ErrorMessage from '../../utils/Error';
+import { ALL_CATS_QUERY } from '../Shop/Shop';
 
 const Container = styled.div`
   width: 100%;
@@ -78,6 +80,7 @@ export default function CreateCat() {
     CREATE_CAT_MUTATION,
     {
       variables: inputs,
+      refetchQueries: [{ query: ALL_CATS_QUERY }],
     }
   );
   return (
@@ -85,12 +88,12 @@ export default function CreateCat() {
       <Form
         onSubmit={async (e) => {
           e.preventDefault();
-          console.log(inputs);
-          await createCat({
-            variables: inputs,
-          });
-          console.log(data);
+          const res = await createCat();
+          console.log(res);
           clearForm();
+          Router.push({
+            pathname: `/cat/${res.data.createCat.id}`,
+          });
         }}
       >
         <fieldset disabled={loading} aria-busy={loading}>

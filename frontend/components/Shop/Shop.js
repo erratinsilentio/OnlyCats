@@ -3,7 +3,7 @@ import gql from 'graphql-tag';
 import { useQuery } from '@apollo/client';
 import Listing from './Listing';
 
-const ALL_CATS_QUERY = gql`
+export const ALL_CATS_QUERY = gql`
   query ALL_CATS_QUERY {
     allCats {
       id
