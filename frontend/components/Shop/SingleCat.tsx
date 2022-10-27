@@ -166,7 +166,7 @@ export default function SingleCat({ id }) {
   return (
     <SingleCatContainer>
       <Head>
-        <title>Only Cats | {Cat.name}</title>
+        <title>Only Cats | {nameFormat(Cat.name)}</title>
       </Head>
       <div className="left box">
         <div className="image-container">
