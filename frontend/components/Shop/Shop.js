@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import gql from 'graphql-tag';
 import { useQuery } from '@apollo/client';
 import Listing from './Listing';
@@ -15,6 +15,16 @@ export const ALL_CATS_QUERY = gql`
         }
       }
     }
+  }
+`;
+
+const rolldown = keyframes`
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
   }
 `;
 
@@ -60,11 +70,11 @@ const ShopStyles = styled.div`
     width: 95vw;
     min-height: 80vh;
     padding: 1rem;
-
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 1rem;
     padding-bottom: 5vh;
+    animation: ${rolldown} 1s;
   }
 
   .listing {

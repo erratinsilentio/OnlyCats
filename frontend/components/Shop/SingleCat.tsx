@@ -1,10 +1,30 @@
 import { useQuery } from '@apollo/client';
 import gql from 'graphql-tag';
 import Head from 'next/head';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import ErrorMessage from '../../utils/Error';
 import moneyFormat from '../../utils/moneyFormatter';
 import nameFormat from '../../utils/nameFormatter';
+
+const appear = keyframes`
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+`;
+
+const roll = keyframes`
+  from {
+    margin-left: 10vh;
+  }
+
+  to {
+    margin-left: 0vh;
+  }
+`;
 
 const SingleCatContainer = styled.div`
   margin-top: 10vh;
@@ -44,6 +64,8 @@ const SingleCatContainer = styled.div`
       #fff8ea 10px,
       #fff8ea 50px
     );
+
+    animation: ${appear} 2s;
   }
 
   img {
@@ -59,6 +81,7 @@ const SingleCatContainer = styled.div`
     border-left: 5px solid var(--pall4);
     position: relative;
     z-index: 5;
+    animation: ${roll} 2s;
   }
 
   .name {
@@ -103,6 +126,7 @@ const SingleCatContainer = styled.div`
     text-align: center;
     background-color: var(--red1);
     color: white;
+    cursor: pointer;
     &:hover {
       filter: brightness(120%);
     }
@@ -137,6 +161,7 @@ export default function SingleCat({ id }) {
   if (error) return <ErrorMessage error={error} />;
 
   const { Cat } = data;
+
   return (
     <SingleCatContainer>
       <Head>
@@ -146,7 +171,7 @@ export default function SingleCat({ id }) {
         <div className="image-container">
           <img
             src={Cat.photo.image.publicUrlTransformed}
-            altText={Cat.photo.altText}
+            alt={Cat.photo.altText}
           />
         </div>
       </div>
