@@ -110,7 +110,7 @@ export default function UpdateCat({ id }) {
             onChange={handleChange}
           />
         </label>
-        <button type="submit">+ Add Cat</button>
+        <button type="submit">Update Cat</button>
       </fieldset>
     </UpdateForm>
   );

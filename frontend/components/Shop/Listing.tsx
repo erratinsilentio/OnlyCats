@@ -19,7 +19,8 @@ const ListingStyles = styled.div`
   cursor: pointer;
 
   .none {
-    display: none;
+    /* display: none; */
+    opacity: 0;
   }
 
   .image {
@@ -56,14 +57,15 @@ const ListingStyles = styled.div`
     color: white;
     background-color: var(--pall2);
     position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
   }
 
   .btn {
     border: 0px;
     color: white;
     background-color: transparent;
-    position: absolute;
-    top: 20%;
     font-size: 1rem;
     cursor: pointer;
     z-index: 99999;
@@ -71,13 +73,13 @@ const ListingStyles = styled.div`
       color: var(--red1);
     }
   }
-
-  .edit {
-    left: 2.5%;
-  }
-
-  .delete {
-    left: 20%;
+  .buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    flex-grow: 1;
+    padding-left: 1rem;
   }
 `;
 
@@ -96,26 +98,26 @@ export default function Listing({ cat }) {
           <div className="title-bg" />
         </div>
         <div className="price box">
-          <Link
-            href={{
-              pathname: 'update',
-              query: {
-                id: cat.id,
-              },
-            }}
-          >
-            <button
-              className={chosen === cat.name ? 'chosen edit btn' : 'none'}
+          <div className="buttons">
+            <Link
+              href={{
+                pathname: 'update',
+                query: {
+                  id: cat.id,
+                },
+              }}
             >
-              [edit]
-            </button>
-          </Link>
-          <DeleteCat
-            className={chosen === cat.name ? 'chosen delete btn' : 'none'}
-            id={cat.id}
-          >
-            [delete]
-          </DeleteCat>
+              <button className={chosen === cat.name ? 'chosen btn' : 'none'}>
+                [edit]
+              </button>
+            </Link>
+            <DeleteCat
+              className={chosen === cat.name ? 'chosen btn' : 'none'}
+              id={cat.id}
+            >
+              [delete]
+            </DeleteCat>
+          </div>
           <div className="price-txt">{moneyFormat(cat.price)} $</div>
           <div className="price-bg" />
         </div>
