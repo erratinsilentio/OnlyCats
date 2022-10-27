@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-filename-extension */
 import { useState } from 'react';
 import styled from 'styled-components';
 import Link from 'next/link';
@@ -15,12 +16,6 @@ const ListingStyles = styled.div`
   background-color: var(--blue1);
   position: relative;
   cursor: pointer;
-
-  .chosen {
-    position: absolute;
-    bottom: 30%;
-    left: 30%;
-  }
 
   .none {
     display: none;
@@ -59,6 +54,16 @@ const ListingStyles = styled.div`
     font-size: 1.5rem;
     color: white;
     background-color: var(--pall2);
+    position: relative;
+  }
+
+  .edit {
+    text-decoration: none;
+    color: white;
+    position: absolute;
+    left: 5%;
+    top: 20%;
+    font-size: 1rem;
   }
 `;
 
@@ -71,13 +76,24 @@ export default function Listing({ cat }) {
         onMouseOver={() => setChosen(cat.name)}
         onMouseLeave={() => setChosen('')}
       >
-        <div className={chosen === cat.name ? 'chosen' : 'none'}>chose me!</div>
         <img src={cat.photo.image.publicUrlTransformed} className="image" />
         <div className="title box">
           <div className="title-txt">{nameFormat(cat.name)}</div>
           <div className="title-bg" />
         </div>
         <div className="price box">
+          <Link
+            href={{
+              pathname: 'update',
+              query: {
+                id: cat.id,
+              },
+            }}
+          >
+            <a className={chosen === cat.name ? 'chosen edit' : 'none'}>
+              [edit]
+            </a>
+          </Link>
           <div className="price-txt">{moneyFormat(cat.price)} $</div>
           <div className="price-bg" />
         </div>
