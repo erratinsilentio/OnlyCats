@@ -92,7 +92,7 @@ export default function CreateCat() {
           console.log(res);
           clearForm();
           Router.push({
-            pathname: `/cat/${res.data.createCat.id}`,
+            pathname: `/shop/${res.data.createCat.id}`,
           });
         }}
       >

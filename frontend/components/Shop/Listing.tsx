@@ -35,9 +35,10 @@ const ListingStyles = styled.div`
     background-image: radial-gradient(#618989 2px, #fff8ea 2px);
     background-size: 40px 40px;
     &:hover {
-      border-left: 10px solid var(--blue1);
+      /* border-left: 10px solid var(--blue1);
       border-right: 10px solid var(--blue1);
-      border-top: 10px solid var(--blue1);
+      border-top: 10px solid var(--blue1); */
+      background-color: var(--blue1);
     }
   }
 
@@ -65,7 +66,7 @@ export default function Listing({ cat }) {
   const [chosen, setChosen] = useState('');
 
   return (
-    <Link href={`/cat/${cat.id}`}>
+    <Link href={`/shop/${cat.id}`}>
       <ListingStyles
         onMouseOver={() => setChosen(cat.name)}
         onMouseLeave={() => setChosen('')}
