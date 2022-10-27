@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import Link from 'next/link';
 import nameFormat from '../../utils/nameFormatter';
 import moneyFormat from '../../utils/moneyFormatter';
+import DeleteCat from '../Update/DeleteCat';
 
 const ListingStyles = styled.div`
   display: flex;
@@ -57,13 +58,26 @@ const ListingStyles = styled.div`
     position: relative;
   }
 
-  .edit {
-    text-decoration: none;
+  .btn {
+    border: 0px;
     color: white;
+    background-color: transparent;
     position: absolute;
-    left: 5%;
     top: 20%;
     font-size: 1rem;
+    cursor: pointer;
+    z-index: 99999;
+    &:hover {
+      color: var(--red1);
+    }
+  }
+
+  .edit {
+    left: 2.5%;
+  }
+
+  .delete {
+    left: 20%;
   }
 `;
 
@@ -90,10 +104,18 @@ export default function Listing({ cat }) {
               },
             }}
           >
-            <a className={chosen === cat.name ? 'chosen edit' : 'none'}>
+            <button
+              className={chosen === cat.name ? 'chosen edit btn' : 'none'}
+            >
               [edit]
-            </a>
+            </button>
           </Link>
+          <DeleteCat
+            className={chosen === cat.name ? 'chosen delete btn' : 'none'}
+            id={cat.id}
+          >
+            [delete]
+          </DeleteCat>
           <div className="price-txt">{moneyFormat(cat.price)} $</div>
           <div className="price-bg" />
         </div>
