@@ -36,16 +36,14 @@ const SingleCatContainer = styled.div`
     align-items: center;
 
     background-color: #fff8ea;
-    background-image: radial-gradient(circle at center center, #dbd5c8, #fff8ea),
-      repeating-radial-gradient(
-        circle at center center,
-        #dbd5c8,
-        #dbd5c8,
-        10px,
-        transparent 20px,
-        transparent 10px
-      );
-    background-blend-mode: multiply;
+    opacity: 1;
+    background: repeating-linear-gradient(
+      45deg,
+      #618989,
+      #618989 10px,
+      #fff8ea 10px,
+      #fff8ea 50px
+    );
   }
 
   img {
