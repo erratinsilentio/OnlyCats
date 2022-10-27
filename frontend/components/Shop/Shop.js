@@ -18,7 +18,7 @@ export const ALL_CATS_QUERY = gql`
   }
 `;
 
-const rolldown = keyframes`
+const appear = keyframes`
   from {
     opacity: 0;
   }
@@ -74,7 +74,7 @@ const ShopStyles = styled.div`
     grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 1rem;
     padding-bottom: 5vh;
-    animation: ${rolldown} 1s;
+    animation: ${appear} 1s;
   }
 
   .listing {

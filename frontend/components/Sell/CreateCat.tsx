@@ -1,11 +1,33 @@
 import gql from 'graphql-tag';
 import { useMutation } from '@apollo/client';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import Router from 'next/router';
 import useForm from '../../utils/useForm';
 import Form from './Form';
 import ErrorMessage from '../../utils/Error';
 import { ALL_CATS_QUERY } from '../Shop/Shop';
+
+const appearFromRight = keyframes`
+  from {
+    opacity: 0;
+    margin-left: 10vh;
+  }
+
+  to {
+    opacity: 1;
+    margin-left: 0vh;
+  }
+`;
+
+const appearFromBottom = keyframes`
+  from {
+    margin-top: 100vh;
+  }
+
+  to {
+    margin-top: 0vh;
+  }
+`;
 
 const Container = styled.div`
   width: 100%;
@@ -14,6 +36,10 @@ const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+
+  Form {
+    animation: ${appearFromBottom} 1s;
+  }
 
   .right {
     width: 50vw;
@@ -42,6 +68,7 @@ const Container = styled.div`
     bottom: -33%;
     left: -20%;
     z-index: 5;
+    animation: ${appearFromRight} 1s;
   }
 `;
 
