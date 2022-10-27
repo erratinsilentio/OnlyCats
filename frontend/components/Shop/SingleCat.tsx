@@ -95,6 +95,7 @@ const SingleCatContainer = styled.div`
     min-height: 10vh;
     max-height: 30vh;
     height: auto;
+    line-height: 5vh;
     overflow: scroll;
     font-size: 1.5rem;
     margin-bottom: 4vh;
