@@ -92,7 +92,6 @@ export default function Shop() {
 
   return (
     <ShopStyles>
-      <Pagination page={1} />
       <div className="shop-header">
         <div className="sh-bg" />
         <div className="sh-txt">Shop</div>
@@ -102,6 +101,7 @@ export default function Shop() {
           <Listing className="listing" cat={cat} />
         ))}
       </div>
+      <Pagination page={1} />
     </ShopStyles>
   );
 }

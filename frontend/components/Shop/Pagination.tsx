@@ -16,22 +16,22 @@ const PAGINATION_QUERY = gql`
 `;
 
 const PaginationStyles = styled.div`
-  outline: 1px solid black;
-  width: 50vw;
-  height: 5vh;
+  width: 95vw;
+  height: 3vh;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
-  position: fixed;
+  /* position: fixed;
   bottom: 5%;
-  left: 25%;
-  z-index: 9999;
-  background-color: white;
+  left: 25%; */
+  margin-bottom: 5vh;
+  background-color: var(--blue1);
+  color: white;
 
   a {
     text-decoration: none;
-    color: black;
+    color: white;
   }
 `;
 
