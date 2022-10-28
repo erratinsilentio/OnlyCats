@@ -2,6 +2,7 @@ import styled, { keyframes } from 'styled-components';
 import gql from 'graphql-tag';
 import { useQuery } from '@apollo/client';
 import Listing from './Listing';
+import Pagination from './Pagination';
 
 export const ALL_CATS_QUERY = gql`
   query ALL_CATS_QUERY {
@@ -91,6 +92,7 @@ export default function Shop() {
 
   return (
     <ShopStyles>
+      <Pagination page={1} />
       <div className="shop-header">
         <div className="sh-bg" />
         <div className="sh-txt">Shop</div>
