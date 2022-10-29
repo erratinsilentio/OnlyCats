@@ -1,6 +1,7 @@
 /* eslint-disable react/jsx-filename-extension */
 import styled from 'styled-components';
 import { useParallax, Parallax } from 'react-scroll-parallax';
+import Link from 'next/link';
 
 const HomeOneStyles = styled.div`
   width: 100%;
@@ -99,7 +100,9 @@ export default function HomeOne() {
           <div className="gallery-text">
             <div className="text-title">PREMIUM CAT PICTURES</div>
             <div className="text-subtitle">NEW IMAGES EVERYDAY</div>
-            <div className="text-button">SHOP NOW</div>
+            <Link href="/shop">
+              <div className="text-button">SHOP NOW</div>
+            </Link>
           </div>
         </Parallax>
       </div>
