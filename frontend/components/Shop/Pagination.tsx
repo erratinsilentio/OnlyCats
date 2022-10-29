@@ -32,6 +32,9 @@ const PaginationStyles = styled.div`
   a {
     text-decoration: none;
     color: white;
+    &:hover {
+      text-decoration: underline;
+    }
   }
 `;
 
