@@ -1,12 +1,14 @@
 import styled, { keyframes } from 'styled-components';
 import gql from 'graphql-tag';
 import { useQuery } from '@apollo/client';
+import { useRouter } from 'next/router';
 import Listing from './Listing';
 import Pagination from './Pagination';
+import { perPage } from '../../utils/config';
 
 export const ALL_CATS_QUERY = gql`
-  query ALL_CATS_QUERY {
-    allCats {
+  query ALL_CATS_QUERY($skip: Int = 0, $first: Int) {
+    allCats(first: $first, skip: $skip) {
       id
       name
       price
@@ -86,8 +88,17 @@ const ShopStyles = styled.div`
   }
 `;
 export default function Shop() {
-  const { data, error, loading } = useQuery(ALL_CATS_QUERY);
-  console.log(data, error, loading);
+  const { query } = useRouter();
+  const page = parseInt(query.page);
+  console.log(page);
+
+  const { data, error, loading } = useQuery(ALL_CATS_QUERY, {
+    variables: {
+      skip: page * perPage - perPage,
+      first: perPage,
+    },
+  });
+
   if (loading) return <p>loading</p>;
 
   return (
@@ -101,7 +112,7 @@ export default function Shop() {
           <Listing className="listing" cat={cat} />
         ))}
       </div>
-      <Pagination page={1} />
+      <Pagination page={page || 1} />
     </ShopStyles>
   );
 }
