@@ -87,7 +87,7 @@ export default function Listing({ cat }) {
   const [chosen, setChosen] = useState('');
 
   return (
-    <Link href={`/shop/${cat.id}`}>
+    <Link href={`/shop/cat/${cat.id}`}>
       <ListingStyles
         onMouseOver={() => setChosen(cat.name)}
         onMouseLeave={() => setChosen('')}
