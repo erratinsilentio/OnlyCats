@@ -7,7 +7,7 @@ import Loading from '../Other/Loading';
 import ErrorMessage from '../../utils/Error';
 import { perPage } from '../../utils/config';
 
-const PAGINATION_QUERY = gql`
+export const PAGINATION_QUERY = gql`
   query {
     _allCatsMeta {
       count
