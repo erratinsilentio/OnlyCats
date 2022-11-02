@@ -20,10 +20,11 @@ export const HeaderStyles = styled.div`
 export const NavStyles = styled.nav`
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: flex-end;
   align-items: center;
   align-self: flex-end;
   background-color: var(--pall1);
+  width: 30vw;
 `;
 
 export const NavButtonStyles = styled.button`
