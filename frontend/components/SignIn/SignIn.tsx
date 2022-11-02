@@ -2,8 +2,9 @@
 import { useMutation } from '@apollo/client';
 import gql from 'graphql-tag';
 import styled, { keyframes } from 'styled-components';
+import { useRouter } from 'next/router';
 import Form from './SignInForm';
-import { CURRENT_USER_QUERY } from '../../utils/useUser';
+import { CURRENT_USER_QUERY, useUser } from '../../utils/useUser';
 import useForm from '../../utils/useForm';
 import ErrorMessage from '../../utils/Error';
 
@@ -89,6 +90,8 @@ const SIGNIN_MUTATION = gql`
 `;
 
 export default function SignInForm() {
+  const router = useRouter();
+
   const { inputs, handleChange, clearForm } = useForm({
     email: '',
     password: '',
@@ -104,6 +107,7 @@ export default function SignInForm() {
     await signin();
     console.log(data);
     clearForm();
+    data ? router.push('/') : router.push('/signin');
   }
 
   const error =
@@ -120,7 +124,6 @@ export default function SignInForm() {
       </div>
       <Form method="POST" onSubmit={handleSubmit}>
         <ErrorMessage error={error} />
-        {/* <fieldset> */}
         <label htmlFor="email">Email</label>
         <input
           type="email"
@@ -139,8 +142,8 @@ export default function SignInForm() {
           value={inputs.password}
           onChange={handleChange}
         />
+
         <button type="submit">Sign in!</button>
-        {/* </fieldset> */}
       </Form>
     </Container>
   );
