@@ -120,27 +120,27 @@ export default function SignInForm() {
       </div>
       <Form method="POST" onSubmit={handleSubmit}>
         <ErrorMessage error={error} />
-        <fieldset>
-          <label htmlFor="email">Email</label>
-          <input
-            type="email"
-            name="email"
-            placeholder="email"
-            autoComplete="email"
-            value={inputs.email}
-            onChange={handleChange}
-          />
-          <label htmlFor="password">Password</label>
-          <input
-            type="password"
-            name="password"
-            placeholder="password"
-            autoComplete="password"
-            value={inputs.password}
-            onChange={handleChange}
-          />
-          <button type="submit">Sign in!</button>
-        </fieldset>
+        {/* <fieldset> */}
+        <label htmlFor="email">Email</label>
+        <input
+          type="email"
+          name="email"
+          placeholder="email"
+          autoComplete="email"
+          value={inputs.email}
+          onChange={handleChange}
+        />
+        <label htmlFor="password">Password</label>
+        <input
+          type="password"
+          name="password"
+          placeholder="password"
+          autoComplete="password"
+          value={inputs.password}
+          onChange={handleChange}
+        />
+        <button type="submit">Sign in!</button>
+        {/* </fieldset> */}
       </Form>
     </Container>
   );

@@ -13,7 +13,7 @@ const loading = keyframes`
 `;
 
 const Form = styled.form`
-  box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.05);
+  /* box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.05); */
   background: rgba(0, 0, 0, 0.02);
   border-left: 10px solid var(--blue1);
   padding: 20px;
@@ -23,11 +23,11 @@ const Form = styled.form`
   font-weight: 100;
   height: 50vh;
   z-index: 6;
-  background: rgb(255, 248, 234);
+  background: rgb(221, 214, 200);
   background: linear-gradient(
-    0deg,
-    rgba(255, 248, 234, 1) 0%,
-    rgba(224, 217, 201, 1) 100%
+    90deg,
+    rgba(221, 214, 200, 1) 38%,
+    rgba(255, 248, 234, 1) 100%
   );
   color: black;
   label {
@@ -38,7 +38,7 @@ const Form = styled.form`
   input,
   textarea,
   select {
-    width: 100%;
+    width: 80%;
     padding: 0.5rem;
     font-size: 1rem;
     border: 0px solid black;
@@ -133,7 +133,7 @@ const Form = styled.form`
   fieldset {
     border: 0;
     padding: 0;
-
+    width: 75%;
     &[disabled] {
       opacity: 0.5;
     }
