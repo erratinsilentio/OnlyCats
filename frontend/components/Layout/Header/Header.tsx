@@ -2,6 +2,7 @@
 import Link from 'next/link';
 import { HeaderStyles, NavStyles, NavButtonStyles } from './HeaderStyles';
 import { useUser } from '../../../utils/useUser';
+import SignOut from '../../Other/SignOut';
 
 export default function Header() {
   const user = useUser();
@@ -35,8 +36,10 @@ export default function Header() {
             <Link href="/account">
               <NavButtonStyles>Account</NavButtonStyles>
             </Link>
-            <Link href="/account">
-              <NavButtonStyles>Log out</NavButtonStyles>
+            <Link href="/">
+              <NavButtonStyles>
+                <SignOut />
+              </NavButtonStyles>
             </Link>
             <Link href="/cart">
               <NavButtonStyles>Cart</NavButtonStyles>
