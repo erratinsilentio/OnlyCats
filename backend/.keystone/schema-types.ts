@@ -188,24 +188,24 @@ export type CatWhereInput = {
   readonly name_not_ends_with_i?: Scalars['String'] | null;
   readonly name_in?: ReadonlyArray<Scalars['String'] | null> | null;
   readonly name_not_in?: ReadonlyArray<Scalars['String'] | null> | null;
-  readonly descrption?: Scalars['String'] | null;
-  readonly descrption_not?: Scalars['String'] | null;
-  readonly descrption_contains?: Scalars['String'] | null;
-  readonly descrption_not_contains?: Scalars['String'] | null;
-  readonly descrption_starts_with?: Scalars['String'] | null;
-  readonly descrption_not_starts_with?: Scalars['String'] | null;
-  readonly descrption_ends_with?: Scalars['String'] | null;
-  readonly descrption_not_ends_with?: Scalars['String'] | null;
-  readonly descrption_i?: Scalars['String'] | null;
-  readonly descrption_not_i?: Scalars['String'] | null;
-  readonly descrption_contains_i?: Scalars['String'] | null;
-  readonly descrption_not_contains_i?: Scalars['String'] | null;
-  readonly descrption_starts_with_i?: Scalars['String'] | null;
-  readonly descrption_not_starts_with_i?: Scalars['String'] | null;
-  readonly descrption_ends_with_i?: Scalars['String'] | null;
-  readonly descrption_not_ends_with_i?: Scalars['String'] | null;
-  readonly descrption_in?: ReadonlyArray<Scalars['String'] | null> | null;
-  readonly descrption_not_in?: ReadonlyArray<Scalars['String'] | null> | null;
+  readonly description?: Scalars['String'] | null;
+  readonly description_not?: Scalars['String'] | null;
+  readonly description_contains?: Scalars['String'] | null;
+  readonly description_not_contains?: Scalars['String'] | null;
+  readonly description_starts_with?: Scalars['String'] | null;
+  readonly description_not_starts_with?: Scalars['String'] | null;
+  readonly description_ends_with?: Scalars['String'] | null;
+  readonly description_not_ends_with?: Scalars['String'] | null;
+  readonly description_i?: Scalars['String'] | null;
+  readonly description_not_i?: Scalars['String'] | null;
+  readonly description_contains_i?: Scalars['String'] | null;
+  readonly description_not_contains_i?: Scalars['String'] | null;
+  readonly description_starts_with_i?: Scalars['String'] | null;
+  readonly description_not_starts_with_i?: Scalars['String'] | null;
+  readonly description_ends_with_i?: Scalars['String'] | null;
+  readonly description_not_ends_with_i?: Scalars['String'] | null;
+  readonly description_in?: ReadonlyArray<Scalars['String'] | null> | null;
+  readonly description_not_in?: ReadonlyArray<Scalars['String'] | null> | null;
   readonly price?: Scalars['Int'] | null;
   readonly price_not?: Scalars['Int'] | null;
   readonly price_lt?: Scalars['Int'] | null;
@@ -227,8 +227,8 @@ export type SortCatsBy =
   | 'id_DESC'
   | 'name_ASC'
   | 'name_DESC'
-  | 'descrption_ASC'
-  | 'descrption_DESC'
+  | 'description_ASC'
+  | 'description_DESC'
   | 'price_ASC'
   | 'price_DESC'
   | 'photo_ASC'
@@ -236,7 +236,7 @@ export type SortCatsBy =
 
 export type CatUpdateInput = {
   readonly name?: Scalars['String'] | null;
-  readonly descrption?: Scalars['String'] | null;
+  readonly description?: Scalars['String'] | null;
   readonly price?: Scalars['Int'] | null;
   readonly photo?: CatImageRelateToOneInput | null;
 };
@@ -248,7 +248,7 @@ export type CatsUpdateInput = {
 
 export type CatCreateInput = {
   readonly name?: Scalars['String'] | null;
-  readonly descrption?: Scalars['String'] | null;
+  readonly description?: Scalars['String'] | null;
   readonly price?: Scalars['Int'] | null;
   readonly photo?: CatImageRelateToOneInput | null;
 };
@@ -447,11 +447,11 @@ export type UserListFn = (
 
 export type CatListTypeInfo = {
   key: 'Cat';
-  fields: 'id' | 'name' | 'descrption' | 'price' | 'photo';
+  fields: 'id' | 'name' | 'description' | 'price' | 'photo';
   backing: {
     readonly id: string;
     readonly name?: string | null;
-    readonly descrption?: string | null;
+    readonly description?: string | null;
     readonly price?: number | null;
     readonly photo?: string | null;
   };

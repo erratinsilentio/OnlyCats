@@ -157,7 +157,7 @@ input CatImageRelateToOneInput {
 type Cat {
   id: ID!
   name: String
-  descrption: String
+  description: String
   price: Int
   photo: CatImage
 }
@@ -187,24 +187,24 @@ input CatWhereInput {
   name_not_ends_with_i: String
   name_in: [String]
   name_not_in: [String]
-  descrption: String
-  descrption_not: String
-  descrption_contains: String
-  descrption_not_contains: String
-  descrption_starts_with: String
-  descrption_not_starts_with: String
-  descrption_ends_with: String
-  descrption_not_ends_with: String
-  descrption_i: String
-  descrption_not_i: String
-  descrption_contains_i: String
-  descrption_not_contains_i: String
-  descrption_starts_with_i: String
-  descrption_not_starts_with_i: String
-  descrption_ends_with_i: String
-  descrption_not_ends_with_i: String
-  descrption_in: [String]
-  descrption_not_in: [String]
+  description: String
+  description_not: String
+  description_contains: String
+  description_not_contains: String
+  description_starts_with: String
+  description_not_starts_with: String
+  description_ends_with: String
+  description_not_ends_with: String
+  description_i: String
+  description_not_i: String
+  description_contains_i: String
+  description_not_contains_i: String
+  description_starts_with_i: String
+  description_not_starts_with_i: String
+  description_ends_with_i: String
+  description_not_ends_with_i: String
+  description_in: [String]
+  description_not_in: [String]
   price: Int
   price_not: Int
   price_lt: Int
@@ -226,8 +226,8 @@ enum SortCatsBy {
   id_DESC
   name_ASC
   name_DESC
-  descrption_ASC
-  descrption_DESC
+  description_ASC
+  description_DESC
   price_ASC
   price_DESC
   photo_ASC
@@ -236,7 +236,7 @@ enum SortCatsBy {
 
 input CatUpdateInput {
   name: String
-  descrption: String
+  description: String
   price: Int
   photo: CatImageRelateToOneInput
 }
@@ -248,7 +248,7 @@ input CatsUpdateInput {
 
 input CatCreateInput {
   name: String
-  descrption: String
+  description: String
   price: Int
   photo: CatImageRelateToOneInput
 }
