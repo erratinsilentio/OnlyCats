@@ -21,7 +21,7 @@ const Form = styled.form`
   font-family: 'Courier New', Courier, monospace;
   line-height: 1.5;
   font-weight: 100;
-  height: 50vh;
+  min-height: 50vh;
   z-index: 6;
   background: rgb(221, 214, 200);
   background: linear-gradient(
@@ -30,6 +30,10 @@ const Form = styled.form`
     rgba(255, 248, 234, 1) 100%
   );
   color: black;
+  display: flex;
+  flex-direction: column;
+  max-height: 50vw;
+  width: 50vw;
   label {
     display: block;
     margin-bottom: 1rem;
@@ -130,14 +134,14 @@ const Form = styled.form`
       filter: brightness(120%);
     }
   }
+  button {
+    margin-bottom: 15px;
+  }
+
   a {
-    margin-top: 20px;
-    font-size: 1rem;
-    text-decoration: none;
-    color: black;
+    color: var(--red1);
     &:hover {
       text-decoration: underline;
-      color: var(--red1);
     }
   }
   fieldset {

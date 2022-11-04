@@ -4,6 +4,7 @@ import { useMutation } from '@apollo/client';
 import gql from 'graphql-tag';
 import styled, { keyframes } from 'styled-components';
 import { useRouter } from 'next/router';
+import Link from 'next/link';
 import Form from './SignInForm';
 import { CURRENT_USER_QUERY, useUser } from '../../utils/useUser';
 import useForm from '../../utils/useForm';
@@ -146,6 +147,11 @@ export default function SignInForm() {
         />
 
         <button type="submit">Sign in!</button>
+        <p>
+          <Link href="/reset">
+            <a>forgot password?</a>
+          </Link>
+        </p>
       </Form>
     </Container>
   );
