@@ -46,9 +46,14 @@ export default function Header() {
             </Link>
           </>
         ) : (
-          <Link href="/signin">
-            <NavButtonStyles>Sign-in</NavButtonStyles>
-          </Link>
+          <>
+            <Link href="/signin">
+              <NavButtonStyles>Sign-in</NavButtonStyles>
+            </Link>
+            <Link href="/signup">
+              <NavButtonStyles>Sign Up</NavButtonStyles>
+            </Link>
+          </>
         )}
       </NavStyles>
     </HeaderStyles>

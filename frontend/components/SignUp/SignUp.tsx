@@ -4,8 +4,8 @@ import { useMutation } from '@apollo/client';
 import gql from 'graphql-tag';
 import styled, { keyframes } from 'styled-components';
 import { useRouter } from 'next/router';
-import Form from './SignInForm';
-import { CURRENT_USER_QUERY, useUser } from '../../utils/useUser';
+import Link from 'next/link';
+import Form from './SignUpForm';
 import useForm from '../../utils/useForm';
 import ErrorMessage from '../../utils/Error';
 
@@ -72,51 +72,38 @@ const Container = styled.div`
   }
 `;
 
-const SIGNIN_MUTATION = gql`
-  mutation SIGNIN_MUTATION($email: String!, $password: String!) {
-    authenticateUserWithPassword(email: $email, password: $password) {
-      ... on UserAuthenticationWithPasswordSuccess {
-        item {
-          id
-          email
-          name
-        }
-      }
-      ... on UserAuthenticationWithPasswordFailure {
-        code
-        message
-      }
+const SIGNUP_MUTATION = gql`
+  mutation SIGNUP_MUTATION(
+    $email: String!
+    $password: String!
+    $name: String!
+  ) {
+    createUser(data: { name: $name, email: $email, password: $password }) {
+      email
+      name
+      id
     }
   }
 `;
 
-export default function SignInForm() {
+export default function SignUpForm() {
   const router = useRouter();
 
   const { inputs, handleChange, clearForm } = useForm({
     email: '',
     password: '',
+    name: '',
   });
 
-  const [signin, { data, loading }] = useMutation(SIGNIN_MUTATION, {
+  const [signup, { data, loading, error }] = useMutation(SIGNUP_MUTATION, {
     variables: inputs,
-    refetchQueries: [{ query: CURRENT_USER_QUERY }],
   });
 
   async function handleSubmit(e) {
     e.preventDefault();
-    const res = await signin();
+    await signup().catch(console.error);
     clearForm();
-    res.data.authenticateUserWithPassword.item.id
-      ? router.push('/')
-      : router.push('/signin');
   }
-
-  const error =
-    data?.authenticateUserWithPassword.__typename ===
-    'UserAuthenticationWithPasswordFailure'
-      ? data?.authenticateUserWithPassword
-      : undefined;
 
   return (
     <Container>
@@ -126,6 +113,15 @@ export default function SignInForm() {
       </div>
       <Form method="POST" onSubmit={handleSubmit}>
         <ErrorMessage error={error} />
+        <label htmlFor="name">Username</label>
+        <input
+          type="text"
+          name="name"
+          placeholder="name"
+          autoComplete="name"
+          value={inputs.name}
+          onChange={handleChange}
+        />
         <label htmlFor="email">Email</label>
         <input
           type="email"
@@ -145,7 +141,14 @@ export default function SignInForm() {
           onChange={handleChange}
         />
 
-        <button type="submit">Sign in!</button>
+        <button type="submit">Sign Up!</button>
+        {data?.createUser && (
+          <Link href="/signin">
+            <p>
+              Signed up successfuly! <a>Log in</a>
+            </p>
+          </Link>
+        )}
       </Form>
     </Container>
   );
