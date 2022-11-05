@@ -79,11 +79,11 @@ const REQUEST_RESET_MUTATION = gql`
 `;
 
 export default function RequestReset() {
-  const { inputs, handleChange, resetForm } = useForm({
+  const { inputs, handleChange, clearForm } = useForm({
     email: '',
   });
 
-  const [signin, { data, loading, error }] = useMutation(
+  const [requestReset, { data, loading, error }] = useMutation(
     REQUEST_RESET_MUTATION,
     {
       variables: inputs,
@@ -93,8 +93,9 @@ export default function RequestReset() {
 
   async function handleSubmit(e) {
     e.preventDefault();
-    await signin();
-    resetForm();
+    await requestReset();
+    console.log(data, loading, error);
+    clearForm();
   }
 
   return (

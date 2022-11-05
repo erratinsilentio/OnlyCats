@@ -23,7 +23,7 @@ const RESET_MUTATION = gql`
 `;
 
 export default function ResetLink({ token }) {
-  const { inputs, handleChange, resetForm } = useForm({
+  const { inputs, handleChange, clearForm } = useForm({
     email: '',
     password: '',
     token,
@@ -36,7 +36,7 @@ export default function ResetLink({ token }) {
   async function handleSubmit(e) {
     e.preventDefault();
     await reset().catch(console.error);
-    resetForm();
+    clearForm();
   }
 
   const successfulError = data?.redeemUserPasswordResetToken?.code
