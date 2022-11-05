@@ -9,6 +9,7 @@ import { insertSeedData } from "./seed-data";
 import { User } from "./schemas/User";
 import { Cat } from "./schemas/Cat";
 import { CatImage } from "./schemas/CatImage";
+import { sendResetTokenEmail } from "./lib/mail";
 
 const databaseURL = process.env.DATABASE_URL;
 
@@ -27,6 +28,7 @@ const { withAuth } = createAuth({
   passwordResetLink: {
     async sendToken(args) {
       console.log(args);
+      await sendResetTokenEmail(args.token, args.identity);
     },
   },
 });
