@@ -1,6 +1,8 @@
 import styled from "styled-components";
 import { useUser } from "../../utils/useUser";
 import Item from "./CartItem";
+import moneyFormat from "../../utils/moneyFormatter";
+import nameFormat from "../../utils/nameFormatter";
 
 export const CartStyles = styled.div`
   position: fixed;
@@ -20,10 +22,9 @@ export const CartStyles = styled.div`
   box-shadow: 10px 5px 50px black;
 
   header {
-    margin-top: 2rem;
     font-size: 2rem;
-    height: 10vh;
-    line-height: 10vh;
+    height: 12vh;
+    line-height: 12vh;
     width: 100%;
     text-align: center;
     background-color: var(--blue1);
@@ -34,12 +35,25 @@ export const CartStyles = styled.div`
     height: 50vh;
     outline: 1px solid white;
     color: white;
+    overflow: scroll;
   }
-  li {
-    color: white;
+
+  .total {
     width: 100%;
-    height: 10%;
-    outline: 1px solid white;
+    height: 15vh;
+    background-color: var(--pall1);
+    font-size: 1.5rem;
+    position: fixed;
+    bottom: 0;
+    padding: 1rem;
+    color: black;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  p {
+    margin-bottom: 1rem;
+    line-height: 6vh;
   }
 `;
 
@@ -53,10 +67,18 @@ export default function Cart() {
   console.log(cart);
   return (
     <CartStyles open>
-      <header>{me.name}'s cart</header>
+      <header>{nameFormat(me.name)}'s cart</header>
       {cart.map((item) => (
         <Item item={item} key={item.id} />
       ))}
+      <section className="total">
+        <p>Total:</p>
+        <p>
+          {moneyFormat(
+            cart.reduce((prev, current) => prev + current.product.price, 0)
+          )}
+        </p>
+      </section>
     </CartStyles>
   );
 }

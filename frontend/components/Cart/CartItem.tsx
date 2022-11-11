@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import moneyFormat from "../../utils/moneyFormatter";
+import nameFormat from "../../utils/nameFormatter";
 
 export const ItemStyles = styled.div`
   width: 100%;
@@ -27,7 +28,7 @@ export const ItemStyles = styled.div`
   }
 
   .price {
-    width: 20%;
+    width: 25%;
     height: 10vh;
     line-height: 10vh;
     border-left: 1px solid var(--pall1);
@@ -37,10 +38,11 @@ export const ItemStyles = styled.div`
 
 export default function Item({ item }) {
   const { product } = item;
+  if (!product) return null;
   return (
     <ItemStyles>
       <img src={product.photo.image.publicUrlTransformed} />
-      <p className="name">{product.name}</p>
+      <p className="name">{nameFormat(product.name)}</p>
       <p className="price">{moneyFormat(product.price)}</p>
     </ItemStyles>
   );
