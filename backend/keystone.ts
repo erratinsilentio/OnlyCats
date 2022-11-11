@@ -10,6 +10,7 @@ import { User } from "./schemas/User";
 import { Cat } from "./schemas/Cat";
 import { CatImage } from "./schemas/CatImage";
 import { sendResetTokenEmail } from "./lib/mail";
+import { CartItem } from "./schemas/CartItem";
 
 const databaseURL = process.env.DATABASE_URL;
 
@@ -54,6 +55,7 @@ export default withAuth(
       User,
       Cat,
       CatImage,
+      CartItem,
     }),
     ui: {
       isAccessAllowed: ({ session }) => {
