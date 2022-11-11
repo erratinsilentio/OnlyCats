@@ -4,9 +4,9 @@ import Item from "./CartItem";
 
 export const CartStyles = styled.div`
   position: fixed;
-  right: 25%;
+  right: 0%;
   top: 0;
-  width: 50%;
+  width: 30vw;
   height: 100vh;
   background-color: var(--pall2);
   color: white;
@@ -17,6 +17,7 @@ export const CartStyles = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
+  box-shadow: 10px 5px 50px black;
 
   header {
     margin-top: 2rem;

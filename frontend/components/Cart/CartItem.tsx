@@ -12,8 +12,12 @@ export const ItemStyles = styled.div`
   img {
     height: 10vh;
     width: 10vh;
-    background-color: var(--pall3);
     border-bottom: 1px solid var(--pall1);
+    object-fit: contain;
+    background-color: #815b5b;
+    opacity: 1;
+    background-image: radial-gradient(#618989 0.5px, #815b5b 0.5px);
+    background-size: 10px 10px;
   }
 
   .name {
@@ -26,6 +30,8 @@ export const ItemStyles = styled.div`
     width: 20%;
     height: 10vh;
     line-height: 10vh;
+    border-left: 1px solid var(--pall1);
+    padding-left: 0.5rem;
   }
 `;
 
