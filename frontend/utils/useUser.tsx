@@ -1,4 +1,4 @@
-import { gql, useQuery } from '@apollo/client';
+import { gql, useQuery } from "@apollo/client";
 
 export const CURRENT_USER_QUERY = gql`
   query {
@@ -7,6 +7,20 @@ export const CURRENT_USER_QUERY = gql`
         id
         email
         name
+        cart {
+          id
+          product {
+            id
+            price
+            name
+            description
+            photo {
+              image {
+                publicUrlTransformed
+              }
+            }
+          }
+        }
       }
     }
   }
