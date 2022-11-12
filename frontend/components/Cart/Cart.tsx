@@ -58,7 +58,7 @@ export const CartStyles = styled.div`
   }
 `;
 
-export default function Cart({ open }) {
+export default function Cart({ open, close }) {
   const me = useUser();
   if (!me) {
     return null;
@@ -68,7 +68,7 @@ export default function Cart({ open }) {
   console.log(cart);
   return (
     <CartStyles open={open}>
-      <header>{nameFormat(me.name)}'s cart</header>
+      <header onClick={close}>{nameFormat(me.name)}'s cart</header>
       {cart.map((item) => (
         <Item item={item} key={item.id} />
       ))}

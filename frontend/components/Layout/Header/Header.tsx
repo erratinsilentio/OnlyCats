@@ -11,9 +11,11 @@ export default function Header() {
   const user = useUser();
   console.log(user);
 
+  const closeCart = () => setCart(false);
+
   return (
     <HeaderStyles>
-      <Cart open={cart ? "open" : null} />
+      <Cart open={cart ? "open" : null} close={closeCart} />
       <NavStyles>
         <Link href="/about">
           <NavButtonStyles>About</NavButtonStyles>
@@ -45,7 +47,7 @@ export default function Header() {
                 <SignOut />
               </NavButtonStyles>
             </Link>
-            <NavButtonStyles onClick={() => setCart(!cart)}>
+            <NavButtonStyles onClick={() => setCart(true)}>
               Cart
             </NavButtonStyles>
           </>
