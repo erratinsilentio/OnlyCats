@@ -1,15 +1,19 @@
 /* eslint-disable react/jsx-filename-extension */
-import Link from 'next/link';
-import { HeaderStyles, NavStyles, NavButtonStyles } from './HeaderStyles';
-import { useUser } from '../../../utils/useUser';
-import SignOut from '../../Other/SignOut';
+import Link from "next/link";
+import { useState } from "react";
+import { HeaderStyles, NavStyles, NavButtonStyles } from "./HeaderStyles";
+import { useUser } from "../../../utils/useUser";
+import SignOut from "../../Other/SignOut";
+import Cart from "../../Cart/Cart";
 
 export default function Header() {
+  const [cart, setCart] = useState(false);
   const user = useUser();
   console.log(user);
 
   return (
     <HeaderStyles>
+      <Cart open={cart ? "open" : null} />
       <NavStyles>
         <Link href="/about">
           <NavButtonStyles>About</NavButtonStyles>
@@ -17,12 +21,12 @@ export default function Header() {
         <Link href="/shop">
           <NavButtonStyles>Shop</NavButtonStyles>
         </Link>
-        <Link href={user ? '/sell' : '/signin'}>
+        <Link href={user ? "/sell" : "/signin"}>
           <NavButtonStyles>Sell</NavButtonStyles>
         </Link>
       </NavStyles>
       <Link href="/">
-        <div className="center-menu" style={{ fontSize: '2rem' }}>
+        <div className="center-menu" style={{ fontSize: "2rem" }}>
           <img
             className="logo"
             src="https://see.fontimg.com/api/renderfont4/z8omG/eyJyIjoiZnMiLCJoIjoxMzAsInciOjIwMDAsImZzIjo2NSwiZmdjIjoiIzAwMDAwMCIsImJnYyI6IiNGRkZGRkYiLCJ0IjoxfQ/T25seUNhdHM/elmirta.png"
@@ -41,9 +45,9 @@ export default function Header() {
                 <SignOut />
               </NavButtonStyles>
             </Link>
-            <Link href="/cart">
-              <NavButtonStyles>Cart</NavButtonStyles>
-            </Link>
+            <NavButtonStyles onClick={() => setCart(!cart)}>
+              Cart
+            </NavButtonStyles>
           </>
         ) : (
           <>

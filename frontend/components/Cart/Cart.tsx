@@ -6,6 +6,7 @@ import nameFormat from "../../utils/nameFormatter";
 
 export const CartStyles = styled.div`
   position: fixed;
+  z-index: 9999;
   right: 0%;
   top: 0;
   width: 30vw;
@@ -57,7 +58,7 @@ export const CartStyles = styled.div`
   }
 `;
 
-export default function Cart() {
+export default function Cart({ open }) {
   const me = useUser();
   if (!me) {
     return null;
@@ -66,7 +67,7 @@ export default function Cart() {
   const { cart } = me;
   console.log(cart);
   return (
-    <CartStyles open>
+    <CartStyles open={open}>
       <header>{nameFormat(me.name)}'s cart</header>
       {cart.map((item) => (
         <Item item={item} key={item.id} />
