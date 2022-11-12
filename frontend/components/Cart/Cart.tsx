@@ -15,7 +15,9 @@ export const CartStyles = styled.div`
   color: white;
   transform: translateX(1000%);
   font-family: "Courier New", Courier, monospace;
+  transition-duration: 0.3s;
   ${(props) => props.open && `transform: translateX(0);`}
+  ${(props) => !props.open && `transform: translateX(1000%);`}
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
