@@ -56,6 +56,24 @@ export const CartStyles = styled.div`
     margin-bottom: 1rem;
     line-height: 6vh;
   }
+
+  button {
+    border: 0px;
+    background-color: transparent;
+    color: white;
+    cursor: pointer;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 5vh;
+    height: 5vh;
+    font-size: 1.5rem;
+    transition-duration: 0.3s;
+    &:hover {
+      font-size: 2rem;
+      color: black;
+    }
+  }
 `;
 
 export default function Cart({ open, close }) {
@@ -68,7 +86,8 @@ export default function Cart({ open, close }) {
   console.log(cart);
   return (
     <CartStyles open={open}>
-      <header onClick={close}>{nameFormat(me.name)}'s cart</header>
+      <button onClick={close}>x</button>
+      <header>{nameFormat(me.name)}'s cart</header>
       {cart.map((item) => (
         <Item item={item} key={item.id} />
       ))}
