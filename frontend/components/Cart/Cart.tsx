@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { IoIosArrowDroprightCircle } from "react-icons/io";
 import { useUser } from "../../utils/useUser";
 import Item from "./CartItem";
 import moneyFormat from "../../utils/moneyFormatter";
@@ -43,7 +44,7 @@ export const CartStyles = styled.div`
 
   .total {
     width: 100%;
-    height: 15vh;
+    height: 12vh;
     background-color: var(--pall1);
     font-size: 1.5rem;
     position: fixed;
@@ -53,10 +54,32 @@ export const CartStyles = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
   }
-  p {
-    margin-bottom: 1rem;
-    line-height: 6vh;
+
+  .checkout {
+    line-height: 12vh;
+    text-align: center;
+    width: 3vw;
+    height: 3vw;
+    color: var(--pall3);
+    transition-duration: 0.2s;
+    cursor: pointer;
+
+    &:hover {
+      color: var(--pall4);
+      width: 4vw;
+      height: 4vw;
+    }
+  }
+  .cc {
+    overflow: hidden;
+    height: 12vh;
+    width: 12vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   button {
@@ -100,6 +123,9 @@ export default function Cart({ open, close }) {
             cart.reduce((prev, current) => prev + current.product.price, 0)
           )}
         </p>
+        <div className="cc">
+          <IoIosArrowDroprightCircle className="checkout" />
+        </div>
       </section>
     </CartStyles>
   );
