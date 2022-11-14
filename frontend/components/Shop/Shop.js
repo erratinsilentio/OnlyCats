@@ -31,12 +31,23 @@ const appear = keyframes`
   }
 `;
 
+const width = keyframes`
+  from {
+    width: 0;
+  }
+
+  to {
+    opacity: 99.5%;
+  }
+`;
+
 const ShopStyles = styled.div`
   width: 95vw;
   min-height: 100vh;
   height: auto;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   padding-left: 2rem;
   padding-right: 2rem;
   font-family: Georgia, 'Times New Roman', Times, serif;
@@ -49,14 +60,15 @@ const ShopStyles = styled.div`
   }
 
   .sh-bg {
-    width: 96.5%;
+    width: 99.5%;
     height: 15%;
     background-color: var(--pall4);
     transform: skew(-55deg);
     position: absolute;
     bottom: 0;
-    left: 2%;
+    left: 0.5%;
     z-index: 1;
+    animation: ${width} 0.5s;
   }
 
   .sh-txt {
