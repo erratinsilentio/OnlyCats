@@ -1,9 +1,6 @@
-import Link from 'next/link';
+import Link from "next/link";
+import About from "../components/About/About";
 
 export default function () {
-  return (
-    <Link href="/">
-      <h1>OnlyCats</h1>
-    </Link>
-  );
+  return <About />;
 }
