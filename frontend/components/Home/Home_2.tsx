@@ -1,6 +1,7 @@
 /* eslint-disable react/jsx-filename-extension */
 import styled from 'styled-components';
 import { useParallax, Parallax } from 'react-scroll-parallax';
+import Link from 'next/link';
 
 const HomeTwoStyles = styled.div`
   width: 100%;
@@ -96,6 +97,7 @@ const HomeTwoStyles = styled.div`
     line-height: 5vw;
     text-align: center;
     outline: 2px solid var(--pall3);
+    cursor: pointer;
 
     &:hover{
       background-color: var(--pall3);
@@ -191,8 +193,12 @@ export default function HomeTwo() {
         <div className="bg bg1" ref={one.ref} />
         <div className="bg bg2" ref={two.ref} />
         <div className="bg bg3" ref={three.ref} />
+        <Link href="/about">
         <div className="btn read">READ MORE >> </div>
+        </Link>
+        <Link href="/signup">
         <div className="btn sign">SIGN-UP >> </div>
+        </Link>
         <img src="../static/paw.svg" className="paw" ref={paw.ref} />
       </div>
     </HomeTwoStyles>

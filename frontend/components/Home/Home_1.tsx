@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-filename-extension */
-import styled from 'styled-components';
-import { useParallax, Parallax } from 'react-scroll-parallax';
-import Link from 'next/link';
+import styled from "styled-components";
+import { useParallax, Parallax } from "react-scroll-parallax";
+import Link from "next/link";
 
 const HomeOneStyles = styled.div`
   width: 100%;
@@ -62,6 +62,7 @@ const HomeOneStyles = styled.div`
     text-align: center;
     margin-left: 1vh;
     z-index: 80;
+    cursor: pointer;
     &:hover {
       background-color: var(--pall1);
       color: crimson;
