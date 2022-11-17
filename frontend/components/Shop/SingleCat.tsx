@@ -1,10 +1,10 @@
-import { useQuery } from '@apollo/client';
-import gql from 'graphql-tag';
-import Head from 'next/head';
-import styled, { keyframes } from 'styled-components';
-import ErrorMessage from '../../utils/Error';
-import moneyFormat from '../../utils/moneyFormatter';
-import nameFormat from '../../utils/nameFormatter';
+import { useMutation, useQuery } from "@apollo/client";
+import gql from "graphql-tag";
+import Head from "next/head";
+import styled, { keyframes } from "styled-components";
+import ErrorMessage from "../../utils/Error";
+import moneyFormat from "../../utils/moneyFormatter";
+import nameFormat from "../../utils/nameFormatter";
 
 const appear = keyframes`
   from {
@@ -134,6 +134,14 @@ const SingleCatContainer = styled.div`
   }
 `;
 
+const ADDTOCART_MUTATION = gql`
+  mutation ADDTOCART_MUTATION($id: ID!) {
+    addToCart(productId: $id) {
+      id
+    }
+  }
+`;
+
 const SINGLE_CAT_QUERY = gql`
   query SINGLE_CAT_QUERY($id: ID!) {
     Cat(where: { id: $id }) {
@@ -158,6 +166,10 @@ export default function SingleCat({ id }) {
     },
   });
 
+  const [addToCart, { cartLoading }] = useMutation(ADDTOCART_MUTATION, {
+    variables: { id },
+  });
+
   if (loading) return <p>Loading...</p>;
   if (error) return <ErrorMessage error={error} />;
 
@@ -178,13 +190,15 @@ export default function SingleCat({ id }) {
       </div>
       <div className="right box">
         <div className="name">{nameFormat(Cat.name)}</div>
-        <div className={Cat.description ? 'description' : 'no-description'}>
+        <div className={Cat.description ? "description" : "no-description"}>
           {Cat.description
             ? Cat.description
-            : 'Looks like this cat does not have a description!'}
+            : "Looks like this cat does not have a description!"}
         </div>
         <div className="price">{moneyFormat(Cat.price)} $</div>
-        <div className="button">ADD TO CART</div>
+        <div className="button" onClick={() => addToCart(Cat.id)}>
+          ADD TO CART
+        </div>
       </div>
     </SingleCatContainer>
   );
