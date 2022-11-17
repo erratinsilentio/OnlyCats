@@ -11,7 +11,7 @@ import { Cat } from "./schemas/Cat";
 import { CatImage } from "./schemas/CatImage";
 import { sendResetTokenEmail } from "./lib/mail";
 import { CartItem } from "./schemas/CartItem";
-import extendGraphqlSchema from "./mutations/index";
+import { extendGraphqlSchema } from "./mutations/index";
 
 const databaseURL = process.env.DATABASE_URL;
 
