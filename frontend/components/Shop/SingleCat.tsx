@@ -121,6 +121,8 @@ const SingleCatContainer = styled.div`
     margin-bottom: 3vh;
   }
   .button {
+    border: 0px;
+    font-size: 1.5rem;
     width: 40%;
     height: 10vh;
     line-height: 10vh;
@@ -166,9 +168,12 @@ export default function SingleCat({ id }) {
     },
   });
 
-  const [addToCart, { cartLoading }] = useMutation(ADDTOCART_MUTATION, {
-    variables: { id },
-  });
+  const [addToCart, { loading: cartLoading }] = useMutation(
+    ADDTOCART_MUTATION,
+    {
+      variables: { id },
+    }
+  );
 
   if (loading) return <p>Loading...</p>;
   if (error) return <ErrorMessage error={error} />;
@@ -196,9 +201,13 @@ export default function SingleCat({ id }) {
             : "Looks like this cat does not have a description!"}
         </div>
         <div className="price">{moneyFormat(Cat.price)} $</div>
-        <div className="button" onClick={() => addToCart(Cat.id)}>
-          ADD TO CART
-        </div>
+        <button
+          disabled={cartLoading}
+          className="button"
+          onClick={() => addToCart(Cat.id)}
+        >
+          ADD{cartLoading && "ing"} TO CART
+        </button>
       </div>
     </SingleCatContainer>
   );
