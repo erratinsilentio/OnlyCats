@@ -18,6 +18,7 @@ export default async function addToCart(
   const [existingCartItem] = allCartItems;
   if (existingCartItem) {
     throw new Error("You already have this cat in your cart!");
+    return null;
   }
 
   return await context.lists.CartItem.createOne({
