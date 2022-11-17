@@ -5,6 +5,7 @@ import styled, { keyframes } from "styled-components";
 import ErrorMessage from "../../utils/Error";
 import moneyFormat from "../../utils/moneyFormatter";
 import nameFormat from "../../utils/nameFormatter";
+import { CURRENT_USER_QUERY } from "../../utils/useUser";
 
 const appear = keyframes`
   from {
@@ -172,6 +173,7 @@ export default function SingleCat({ id }) {
     ADDTOCART_MUTATION,
     {
       variables: { id },
+      refetchQueries: [{ query: CURRENT_USER_QUERY }],
     }
   );
 
