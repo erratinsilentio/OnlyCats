@@ -33,6 +33,7 @@ export const CartStyles = styled.div`
     text-align: center;
     background-color: var(--blue1);
   }
+
   ul {
     width: 100%;
     min-height: 10vh;
@@ -41,7 +42,11 @@ export const CartStyles = styled.div`
     color: white;
     overflow: scroll;
   }
-
+  .items {
+    overflow: scroll;
+    width: 100%;
+    height: 76vh;
+  }
   .total {
     width: 100%;
     height: 12vh;
@@ -113,9 +118,11 @@ export default function Cart({ open, close }) {
     <CartStyles open={open}>
       <button onClick={close}>x</button>
       <header>{nameFormat(me.name)}'s cart</header>
-      {cart.map((item) => (
-        <Item item={item} key={item.id} />
-      ))}
+      <section className="items">
+        {cart.map((item) => (
+          <Item item={item} key={item.id} />
+        ))}
+      </section>
       <section className="total">
         <p>Total:</p>
         <p>
