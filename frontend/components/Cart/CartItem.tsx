@@ -44,6 +44,7 @@ export default function Item({ item }) {
       <img src={product.photo.image.publicUrlTransformed} />
       <p className="name">{nameFormat(product.name)}</p>
       <p className="price">{moneyFormat(product.price)}</p>
+      <p className="delete">x</p>
     </ItemStyles>
   );
 }
