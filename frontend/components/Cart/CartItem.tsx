@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { TiDelete } from "react-icons/ti";
 import moneyFormat from "../../utils/moneyFormatter";
 import nameFormat from "../../utils/nameFormatter";
 
@@ -25,14 +26,26 @@ export const ItemStyles = styled.div`
     width: 50%;
     height: 10vh;
     line-height: 10vh;
+    padding-left: 1rem;
   }
 
   .price {
-    width: 25%;
+    width: 30%;
     height: 10vh;
     line-height: 10vh;
     border-left: 1px solid var(--pall1);
+    border-right: 1px solid var(--pall1);
+
     padding-left: 0.5rem;
+  }
+
+  .delete {
+    width: 10%;
+    height: 100%;
+    cursor: pointer;
+    &:hover {
+      filter: brightness(80%);
+    }
   }
 `;
 
@@ -44,7 +57,7 @@ export default function Item({ item }) {
       <img src={product.photo.image.publicUrlTransformed} />
       <p className="name">{nameFormat(product.name)}</p>
       <p className="price">{moneyFormat(product.price)}</p>
-      <p className="delete">x</p>
+      <TiDelete className="delete" />
     </ItemStyles>
   );
 }
