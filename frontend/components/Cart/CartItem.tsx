@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { TiDelete } from "react-icons/ti";
+import Link from "next/link";
 import moneyFormat from "../../utils/moneyFormatter";
 import nameFormat from "../../utils/nameFormatter";
 
@@ -27,6 +28,9 @@ export const ItemStyles = styled.div`
     height: 10vh;
     line-height: 10vh;
     padding-left: 1rem;
+    &:hover {
+      text-decoration: underline;
+    }
   }
 
   .price {
@@ -55,7 +59,9 @@ export default function Item({ item }) {
   return (
     <ItemStyles>
       <img src={product.photo.image.publicUrlTransformed} />
-      <p className="name">{nameFormat(product.name)}</p>
+      <Link href={`/shop/cat/${product.id}`}>
+        <p className="name">{nameFormat(product.name)}</p>
+      </Link>
       <p className="price">{moneyFormat(product.price)}</p>
       <TiDelete className="delete" />
     </ItemStyles>
