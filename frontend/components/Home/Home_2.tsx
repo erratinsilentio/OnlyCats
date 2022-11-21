@@ -7,6 +7,7 @@ const HomeTwoStyles = styled.div`
   width: 100%;
   height: 97vh;
   max-height: 97vh;
+  margin-bottom: 3vh;
   background-color: var(--pall2);
   display: flex;
   flex-direction: row;
