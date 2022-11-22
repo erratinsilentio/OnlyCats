@@ -50,6 +50,26 @@ const right5 = keyframes`
   }
 `;
 
+const shadow = keyframes`
+  0% {
+    box-shadow: 13px 8px 30px var(--pall4);
+  }
+
+  25% {
+    box-shadow: 15px 10px 40px var(--pall4);
+  }
+  50% {
+    box-shadow: 17px 12px 50px var(--pall4);
+  }
+  75% {
+    box-shadow: 15px 10px 40px var(--pall4);
+  }
+
+  100% {
+    box-shadow: 13px 8px 30px var(--pall4);
+  }
+`;
+
 export const Container = styled.div`
   margin-top: 10vh;
   width: 100%;
@@ -110,6 +130,7 @@ export const Container = styled.div`
     box-shadow: 15px 10px 50px var(--pall4);
     z-index: 10;
     animation: ${appear} 2s;
+    animation: ${shadow} 3s infinite;
 
     background-color: var(--pall1);
   }
@@ -129,6 +150,7 @@ export const Container = styled.div`
     animation: ${appear} 2s;
     animation: ${right5} 1s;
     box-shadow: 15px 10px 40px var(--pall4);
+    animation: ${shadow} 5s infinite;
   }
   .bb {
     width: 80%;
@@ -140,6 +162,7 @@ export const Container = styled.div`
     background-color: var(--pall3);
     animation: ${appear} 3s;
     animation: ${right3} 0.5s;
+    animation: ${shadow} 4s infinite;
     box-shadow: 15px 10px 30px var(--pall4);
   }
 `;
