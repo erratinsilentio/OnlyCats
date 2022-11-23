@@ -1,8 +1,18 @@
 import styled from "styled-components";
 import { TiDelete } from "react-icons/ti";
 import Link from "next/link";
+import gql from "graphql-tag";
+import { useMutation } from "@apollo/client";
 import moneyFormat from "../../utils/moneyFormatter";
 import nameFormat from "../../utils/nameFormatter";
+
+const DELETE_CART_ITEM_MUTATION = gql`
+  mutation DELETE_CART_ITEM_MUTATION($id: ID!) {
+    deleteCartItem(id: $id) {
+      id
+    }
+  }
+`;
 
 export const ItemStyles = styled.div`
   width: 100%;
@@ -53,9 +63,25 @@ export const ItemStyles = styled.div`
   }
 `;
 
+function update(cache, payload) {
+  cache.evict(cache.identify(payload.data.deleteCartItem));
+}
+
 export default function Item({ item }) {
   const { product } = item;
   if (!product) return null;
+
+  const stringID = item.id.toString();
+  console.log(`string id: ${stringID}`);
+
+  const [deleteItem, { data, loading, error }] = useMutation(
+    DELETE_CART_ITEM_MUTATION,
+    {
+      variables: { id: stringID },
+      update,
+    }
+  );
+
   return (
     <ItemStyles>
       <img src={product.photo.image.publicUrlTransformed} />
@@ -63,7 +89,17 @@ export default function Item({ item }) {
         <p className="name">{nameFormat(product.name)}</p>
       </Link>
       <p className="price">{moneyFormat(product.price)}</p>
-      <TiDelete className="delete" />
+      <TiDelete
+        className="delete"
+        onClick={(e) => {
+          console.log(stringID);
+          if (confirm("u sure bro?")) {
+            deleteItem().catch((err) => alert(err.message));
+            console.log(data, error, loading);
+          }
+          e.stopPropagation();
+        }}
+      />
     </ItemStyles>
   );
 }

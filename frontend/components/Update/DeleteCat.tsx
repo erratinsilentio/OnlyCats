@@ -1,5 +1,5 @@
-import { useMutation } from '@apollo/client';
-import gql from 'graphql-tag';
+import { useMutation } from "@apollo/client";
+import gql from "graphql-tag";
 
 const DELETE_CAT_MUTATION = gql`
   mutation DELETE_CAT_MUTATION($id: ID!) {
@@ -27,7 +27,7 @@ export default function DeleteCat({ id, children, className }) {
       className={className}
       disabled={loading}
       onClick={(e) => {
-        if (confirm('u sure bro?')) {
+        if (confirm("u sure bro?")) {
           deleteCat().catch((err) => alert(err.message));
         }
         e.stopPropagation();

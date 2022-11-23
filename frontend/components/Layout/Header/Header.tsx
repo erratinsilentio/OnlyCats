@@ -9,6 +9,10 @@ import Cart from "../../Cart/Cart";
 export default function Header() {
   const [cart, setCart] = useState(false);
   const user = useUser();
+
+  if (!user) return null;
+
+  const cartItemsNum = user.cart.length;
   console.log(user);
 
   const closeCart = () => setCart(false);
@@ -49,6 +53,7 @@ export default function Header() {
             </Link>
             <NavButtonStyles onClick={() => setCart(true)}>
               Cart
+              {cartItemsNum ? `(${cartItemsNum})` : null}
             </NavButtonStyles>
           </>
         ) : (

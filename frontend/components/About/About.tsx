@@ -126,12 +126,10 @@ export const Container = styled.div`
     height: 80%;
     font-size: 1.2rem;
     line-height: 4vh;
-    /* border: 1px solid var(--blue1); */
     box-shadow: 15px 10px 50px var(--pall4);
     z-index: 10;
     animation: ${appear} 2s;
     animation: ${shadow} 3s infinite;
-
     background-color: var(--pall1);
   }
 
