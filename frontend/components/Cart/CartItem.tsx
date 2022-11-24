@@ -67,7 +67,7 @@ function update(cache, payload) {
   cache.evict(cache.identify(payload.data.deleteCartItem));
 }
 
-export default function Item({ item }) {
+export default function Item({ item, close }) {
   const { product } = item;
   if (!product) return null;
 
@@ -86,7 +86,9 @@ export default function Item({ item }) {
     <ItemStyles>
       <img src={product.photo.image.publicUrlTransformed} />
       <Link href={`/shop/cat/${product.id}`}>
-        <p className="name">{nameFormat(product.name)}</p>
+        <p className="name" onClick={close}>
+          {nameFormat(product.name)}
+        </p>
       </Link>
       <p className="price">{moneyFormat(product.price)}</p>
       <TiDelete

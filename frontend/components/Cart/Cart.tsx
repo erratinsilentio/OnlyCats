@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { IoIosArrowDroprightCircle } from "react-icons/io";
+import Link from "next/link";
 import { useUser } from "../../utils/useUser";
 import Item from "./CartItem";
 import moneyFormat from "../../utils/moneyFormatter";
@@ -120,7 +121,7 @@ export default function Cart({ open, close }) {
       <header>{nameFormat(me.name)}'s cart</header>
       <section className="items">
         {cart.map((item) => (
-          <Item item={item} key={item.id} />
+          <Item item={item} key={item.id} close={close} />
         ))}
       </section>
       <section className="total">
@@ -131,7 +132,9 @@ export default function Cart({ open, close }) {
           )}
         </p>
         <div className="cc">
-          <IoIosArrowDroprightCircle className="checkout" />
+          <Link href="/checkout">
+            <IoIosArrowDroprightCircle className="checkout" onClick={close} />
+          </Link>
         </div>
       </section>
     </CartStyles>
