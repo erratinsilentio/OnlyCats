@@ -1,3 +1,5 @@
-export default function Checkout() {
-  return <h1>checkout</h1>;
+import Checkout from "../components/Checkout/Checkout";
+
+export default function CheckoutPage() {
+  return <Checkout />;
 }

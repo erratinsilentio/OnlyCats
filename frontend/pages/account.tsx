@@ -12,7 +12,7 @@ const Container = styled.div`
 export default function Account() {
   return (
     <Container>
-      <h1>Account</h1>
+      <h1>ACCOUNT</h1>
     </Container>
   );
 }
