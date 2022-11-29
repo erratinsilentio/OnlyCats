@@ -1,4 +1,9 @@
-import { CardElement, Elements, useStripe } from "@stripe/react-stripe-js";
+import {
+  CardElement,
+  Elements,
+  useElements,
+  useStripe,
+} from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 import { useState } from "react";
 import styled from "styled-components";
@@ -44,11 +49,23 @@ function CheckoutForm() {
   const [error, setError] = useState();
   const [loading, setLoading] = useState(false);
   const stripe = useStripe();
+  const elements = useElements();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
     nProgress.start();
+
+    const { error, paymentMethod } = await stripe.createPaymentMethod({
+      type: "card",
+      card: elements.getElement(CardElement),
+    });
+
+    console.log(paymentMethod, error);
+
+    if (error) {
+      setError(error);
+    }
   };
 
   return (
@@ -56,9 +73,12 @@ function CheckoutForm() {
       <div className="order">
         <p>order</p>
       </div>
-      <CheckoutFormStyled submit={handleSubmit}>
+      <CheckoutFormStyled onSubmit={handleSubmit}>
+        {error && <p>{error.message}</p>}
         <CardElement />
-        <button type="button">SUBMIT</button>
+        <button type="submit" value="submit">
+          SUBMIT
+        </button>
       </CheckoutFormStyled>
     </Container>
   );
