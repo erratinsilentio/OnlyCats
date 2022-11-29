@@ -6,4 +6,7 @@ export const CartItem = list({
     product: relationship({ ref: "Cat" }),
     user: relationship({ ref: "User.cart" }),
   },
+  access: {
+    delete: true,
+  },
 });

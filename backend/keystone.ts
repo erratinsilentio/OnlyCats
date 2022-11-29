@@ -9,6 +9,8 @@ import { insertSeedData } from "./seed-data";
 import { User } from "./schemas/User";
 import { Cat } from "./schemas/Cat";
 import { CatImage } from "./schemas/CatImage";
+import { OrderItem } from "./schemas/OrderItem";
+import { Order } from "./schemas/Order";
 import { sendResetTokenEmail } from "./lib/mail";
 import { CartItem } from "./schemas/CartItem";
 import { extendGraphqlSchema } from "./mutations/index";
@@ -57,6 +59,8 @@ export default withAuth(
       Cat,
       CatImage,
       CartItem,
+      OrderItem,
+      Order,
     }),
     extendGraphqlSchema,
     ui: {
