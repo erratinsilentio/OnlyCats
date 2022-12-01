@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { TiDelete } from "react-icons/ti";
 import moneyFormat from "../../utils/moneyFormatter";
 import nameFormat from "../../utils/nameFormatter";
 
@@ -16,10 +17,30 @@ const Container = styled.ul`
 
   img {
     height: 7.5vh;
+    width: 7.5vh;
   }
 
   p {
     height: 7.5vh;
+  }
+
+  .name {
+    width: 40%;
+    font-size: 1.5rem;
+  }
+
+  .price {
+    font-size: 1.5rem;
+    width: 40%;
+  }
+
+  .delete {
+    width: 10%;
+    height: 7.5vh;
+    cursor: pointer;
+    &:hover {
+      filter: brightness(80%);
+    }
   }
 `;
 
@@ -31,6 +52,7 @@ export default function Order({ cart }) {
           <img src={item.product.photo.image.publicUrlTransformed} />
           <p className="name">{nameFormat(item.product.name)}</p>
           <p className="price">{moneyFormat(item.product.price)}</p>
+          <TiDelete className="delete" />
         </li>
       ))}
     </Container>
