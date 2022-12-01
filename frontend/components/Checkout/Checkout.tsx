@@ -10,6 +10,8 @@ import styled from "styled-components";
 import nProgress from "nprogress";
 import { useUser } from "../../utils/useUser";
 import nameFormat from "../../utils/nameFormatter";
+import Loading from "../Other/Loading";
+import Order from "./Order";
 
 const Container = styled.div`
   margin-top: 10vh;
@@ -25,6 +27,7 @@ const Container = styled.div`
     border: 15px solid var(--pall3);
     display: flex;
     align-items: flex-start;
+    flex-direction: column;
   }
 
   p {
@@ -34,6 +37,7 @@ const Container = styled.div`
     width: 46vw;
     height: 7.5vh;
     outline: 1px solid var(--pall3);
+    text-align: center;
   }
 `;
 
@@ -66,6 +70,11 @@ function CheckoutForm() {
   const elements = useElements();
 
   const me = useUser();
+
+  if (!me) {
+    return <Loading />;
+  }
+
   const { cart } = me;
   const { name } = me;
 
@@ -88,10 +97,12 @@ function CheckoutForm() {
     nProgress.done();
   };
 
+  console.log("current cart: ", cart);
   return (
     <Container>
       <div className="order">
         <p>{nameFormat(name)}'s Cart</p>
+        <Order cart={cart} />
       </div>
       <CheckoutFormStyled onSubmit={handleSubmit}>
         {error && <p>{error.message}</p>}
